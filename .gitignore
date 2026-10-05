@@ -1,0 +1,22 @@
+# Keep this repository separate from a live Thunderbird profile.
+.DS_Store
+*.zip
+*.bak
+*.backup
+backups/
+profiles/
+Profiles/
+prefs.js
+xulstore.json
+user.js.applied
+logins.json
+key4.db
+cert9.db
+cookies.sqlite*
+global-messages-db.sqlite*
+Mail/
+ImapMail/
+storage/
+extensions/
+startupCache/
+*.msf

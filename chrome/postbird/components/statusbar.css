@@ -1,0 +1,11 @@
+/* Adapted from Postbird; MIT license in ../LICENSE. */
+#status-bar {
+  background-color: var(--pb-bg-chrome) !important;
+  color: var(--pb-text-date) !important;
+  border-top: 1px solid var(--pb-chrome-divider) !important;
+}
+
+
+#status-bar :is(#statusText, .statusbarpanel) {
+  color: var(--pb-text-date) !important;
+}

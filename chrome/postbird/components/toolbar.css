@@ -1,0 +1,49 @@
+/* Adapted from Postbird; MIT license in ../LICENSE. */
+unified-toolbar,
+#unifiedToolbarContainer {
+  background: var(--pb-toolbar-bg) !important;
+}
+
+
+#toolbar-menubar {
+  background: var(--pb-toolbar-bg) !important;
+}
+
+
+.unified-toolbar .unified-toolbar-button {
+  --button-padding: var(--pb-toolbar-btn-padding) !important;
+  gap: var(--pb-toolbar-btn-gap) !important;
+}
+.unified-toolbar .unified-toolbar-button .button-label {
+  font-size: var(--pb-toolbar-label-size) !important;
+}
+
+
+.unified-toolbar .get-messages .button-icon {
+  fill: color-mix(in srgb, var(--pb-icon-get) 20%, transparent) !important;
+  stroke: var(--pb-icon-get) !important;
+}
+.unified-toolbar .write-message .button-icon {
+  fill: color-mix(in srgb, var(--pb-icon-compose) 20%, transparent) !important;
+  stroke: var(--pb-icon-compose) !important;
+}
+.unified-toolbar :is(.reply, .reply-all, .reply-to-list, .forward-inline, .redirect) .button-icon {
+  fill: color-mix(in srgb, var(--pb-icon-reply) 20%, transparent) !important;
+  stroke: var(--pb-icon-reply) !important;
+}
+.unified-toolbar .archive .button-icon {
+  fill: color-mix(in srgb, var(--pb-icon-archive) 20%, transparent) !important;
+  stroke: var(--pb-icon-archive) !important;
+}
+.unified-toolbar .delete .button-icon {
+  fill: color-mix(in srgb, var(--pb-icon-delete) 20%, transparent) !important;
+  stroke: var(--pb-icon-delete) !important;
+}
+.unified-toolbar .junk .button-icon {
+  fill: color-mix(in srgb, var(--pb-icon-junk) 20%, transparent) !important;
+  stroke: var(--pb-icon-junk) !important;
+}
+
+#unifiedToolbar { --toolbar-color: var(--pb-text-sender) !important; --toolbar-bgcolor: var(--pb-c-toolbar-bottom) !important; border-bottom: 1px solid var(--pb-divider) !important; }
+#unifiedToolbarContent .button-label { color: var(--pb-text-sender) !important; }
+.unified-toolbar .tag-message .button-icon { fill: color-mix(in srgb, #b89528 20%, transparent) !important; stroke: #b89528 !important; }

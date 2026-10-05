@@ -1,0 +1,10 @@
+/* Postbird Tangaroa — local macOS adaptation. See postbird/README.md. */
+@import url("postbird/config.css");
+@import url("postbird/components/typography.css");
+@import url("postbird/components/folderpane.css") not (forced-colors: active);
+@import url("postbird/components/threadpane.css") not (forced-colors: active);
+@import url("postbird/components/toolbar.css") not (forced-colors: active);
+@import url("postbird/components/tabs.css") not (forced-colors: active);
+@import url("postbird/components/messageheader.css") not (forced-colors: active);
+@import url("postbird/components/spacestoolbar.css") not (forced-colors: active);
+@import url("postbird/components/statusbar.css") not (forced-colors: active);

@@ -1,0 +1,28 @@
+/* Fonts are independent of the native virtual-list row geometry. */
+@-moz-document url("chrome://messenger/content/messenger.xhtml"),
+ url("chrome://messenger/content/about3Pane.xhtml"),
+ url("chrome://messenger/content/aboutMessage.xhtml"),
+ url("about:3pane"), url("about:message") {
+  :root { font: var(--pb-system-font) !important; font-size: var(--pb-ui-font-size) !important; }
+}
+#threadTree, #threadTree table { font: var(--pb-system-font) !important; font-size: var(--pb-list-font-size) !important; }
+#threadTree thead, #threadTree thead button { font-size: var(--pb-list-header-size) !important; }
+#folderPane, #folderTree, #folderTree li > .container > .name {
+  font: var(--pb-system-font) !important;
+  font-size: var(--pb-folder-name-size) !important;
+  font-weight: var(--pb-weight-read) !important;
+}
+#folderTree .mode-container > .mode-name {
+  font-family: var(--pb-font-family) !important;
+  font-size: var(--pb-folder-section-size) !important;
+  font-weight: 500 !important;
+}
+#folderTree :is(.unread-count, .total-count) {
+  font-size: var(--pb-folder-badge-size) !important; font-weight: var(--pb-weight-read) !important;
+}
+#messageHeader { font-family: var(--pb-font-family) !important; font-size: var(--pb-message-header-size) !important; }
+#messageHeader #expandedsubjectBox { font-size: var(--pb-message-subject-size) !important; font-weight: 500 !important; }
+#messageHeader .recipient-multi-line-name { font-size: var(--pb-message-header-size) !important; }
+
+/* Postbox uses the native message-box system font in both XUL trees. */
+#threadTree tbody > tr.table-layout[data-properties~="read"] { font-weight: var(--pb-weight-read) !important; }

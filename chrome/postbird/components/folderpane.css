@@ -1,0 +1,48 @@
+/* Tangaroa sidebar; current Favorites/All Folders modes are preserved. */
+#folderPane {
+ --list-item-min-height: var(--pb-folder-row-height) !important;
+ --sidebar-background: var(--pb-bg-sidebar) !important;
+ --sidebar-color: var(--pb-sidebar-text) !important;
+ --sidebar-border: var(--pb-sidebar-divider) !important;
+ --treeitem-background-selected: var(--pb-folder-selection-inactive) !important;
+ --treeitem-background-hover: var(--pb-sidebar-hover) !important;
+ --treeitem-background-active: var(--pb-selection-bg) !important;
+ --treeitem-text-active: var(--pb-selection-text) !important;
+ --list-container-background-hover: var(--pb-sidebar-hover) !important;
+ --list-container-background-selected: var(--pb-folder-selection-inactive) !important;
+ --list-container-background-selected-current: var(--pb-folder-selection-inactive) !important;
+ --list-container-background-selected-focused: var(--pb-selection-bg) !important;
+ --list-container-background-selected-current-focused: var(--pb-selection-bg) !important;
+ --list-container-border-hover: transparent !important;
+ --list-container-border-selected: transparent !important;
+ --list-container-border-selected-current: transparent !important;
+ --list-container-border-selected-focused: transparent !important;
+ --list-container-border-selected-current-focused: transparent !important;
+ --folder-color-folder: var(--pb-sidebar-icon) !important;
+ --folder-color-inbox: var(--pb-icon-get) !important;
+ --folder-color-draft: var(--pb-icon-compose) !important;
+ --folder-color-sent: var(--pb-icon-compose) !important;
+ --folder-color-spam: var(--pb-icon-junk) !important;
+ --folder-color-trash: var(--pb-icon-delete) !important;
+ --new-folder-color: var(--pb-sidebar-text) !important;
+ --folderpane-unread-count-background: var(--pb-folder-badge-bg) !important;
+ --folderpane-unread-new-count-background: var(--pb-folder-badge-bg) !important;
+ --folderpane-total-count-background: var(--pb-folder-badge-bg) !important;
+ --folderpane-unread-count-text: var(--pb-folder-badge-text) !important;
+ --folderpane-total-count-text: var(--pb-folder-badge-text) !important;
+ background: var(--pb-bg-sidebar) !important; color: var(--pb-sidebar-text) !important;
+}
+#folderTree, #folderPaneHeaderBar { background: var(--pb-bg-sidebar) !important; color: var(--pb-sidebar-text) !important; }
+#folderTree .mode-container { border-color: var(--pb-sidebar-divider) !important; }
+#folderTree .mode-name { color: var(--pb-sidebar-text-muted) !important; }
+#folderTree li[data-server-type] > .container {
+ padding-block: 5px !important; border-bottom-color: var(--pb-sidebar-divider) !important; border-radius: 0 !important;
+}
+#folderTree li[data-server-type] > .container .icon { stroke: var(--pb-sidebar-icon) !important; fill: transparent !important; }
+#folderTree li > .container { color: var(--pb-sidebar-text) !important; }
+#folderTree li.selected > .container { background: var(--pb-folder-selection-inactive) !important; }
+#folderTree:focus-within li.selected > .container { background: var(--pb-selection-bg) !important; color: var(--pb-selection-text) !important; }
+#folderTree .container > :is(.unread-count, .total-count) {
+ color: var(--pb-folder-badge-text) !important; background: var(--pb-folder-badge-bg) !important;
+ border-color: transparent !important; border-radius: var(--pb-folder-badge-radius) !important; min-width: 16px !important;
+}
