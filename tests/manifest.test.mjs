@@ -1,4 +1,5 @@
 import { test } from "node:test";
+import { readFileSync } from "node:fs";
 import assert from "node:assert/strict";
 import { readManifest } from "./helpers.mjs";
 
@@ -31,4 +32,10 @@ test("dark palette keeps the Tangaroa key colours", () => {
   const c = readManifest().dark_theme.colors;
   assert.equal(c.tg_selector, "#55ADF8"); assert.equal(c.tg_folder_bubble_bg, "#dd491a"); assert.equal(c.tg_bg_sidebar, "#1E2D3F");
   assert.equal(c.tg_bg_primary, "#16222F");
+});
+test("icon files referenced by the manifest exist and are PNG", () => {
+  for (const file of Object.values(readManifest().icons)) {
+    const bytes = readFileSync(new URL("../theme/" + file, import.meta.url));
+    assert.deepEqual([...bytes.subarray(0, 4)], [0x89, 0x50, 0x4e, 0x47]);
+  }
 });
