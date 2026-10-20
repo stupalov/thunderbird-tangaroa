@@ -1,8 +1,0 @@
-
-/* Postbox message base size. Keep sizes specified within HTML messages.
-   This also prevents Thunderbird's larger native row metric from enlarging
-   message bodies through its interface font-size adjustment. */
-@-moz-document url-prefix("imap:"), url-prefix("mailbox:"), url-prefix("news:"),
-               url-prefix("snews:") {
-  body { font-size: 13px !important; }
-}
