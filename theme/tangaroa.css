@@ -3,7 +3,9 @@
  * about:3pane, about:message). The manifest maps each tg_* colour to the
  * --tg-* variable of the same name; the :root values below are the light
  * palette and only apply when that mapping is absent.
- * Ported from the 0.1.0 userChrome kit; native row geometry is untouched. */
+ * Ported from the 0.1.0 userChrome kit; native row geometry is untouched.
+ * The kit's userContent.css is not ported: theme stylesheets do not reach
+ * message content documents, so message bodies keep their own styling. */
 
 /* ---------------------------------------------------------------- :root */
 :root {
@@ -62,7 +64,13 @@
 }
 
 /* ----------------------------------------------------------- typography */
-:root { font-family: var(--tg-font-family) !important; font-size: var(--tg-ui-font-size) !important; }
+/* Only messenger.xhtml (#tabmail), about:3pane (#folderPane) and
+ * about:message (#messageHeader); compose, address book and dialogs keep
+ * the user's interface font. */
+:root:is(:has(#tabmail), :has(#folderPane), :has(#messageHeader)) {
+  font-family: var(--tg-font-family) !important;
+  font-size: var(--tg-ui-font-size) !important;
+}
 #threadTree, #threadTree table { font-family: var(--tg-font-family) !important; font-size: var(--tg-list-font-size) !important; }
 #threadTree thead, #threadTree thead button { font-size: var(--tg-list-header-size) !important; }
 #folderPane, #folderTree, #folderTree li > .container > .name {

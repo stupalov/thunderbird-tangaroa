@@ -22,3 +22,14 @@ test("stylesheet sets the sidebar variables AccountPane reads", () => {
   const css = readStylesheet();
   for (const v of ["--sidebar-background", "--sidebar-color", "--treeitem-background-active", "--list-container-background-selected-focused", "--folderpane-unread-count-background", "--folderpane-unread-count-text"]) assert.match(css, new RegExp(v + "\\s*:"));
 });
+test("stylesheet :root defaults equal the manifest's light colours", () => {
+  const css = readStylesheet(); const m = readManifest();
+  const block = css.match(/(?:^|\n):root\s*\{([^}]*)\}/)[1];
+  const defaults = Object.fromEntries([...block.matchAll(/(--tg-[a-z0-9-]+)\s*:\s*([^;]+);/g)].map(x => [x[1], x[2].trim()]));
+  for (const [key, v] of Object.entries(m.theme_experiment.colors)) assert.equal(defaults[v], m.theme.colors[key], v + " default differs from theme.colors." + key);
+});
+test("typography :root rule is scoped to the mail documents", () => {
+  const css = readStylesheet();
+  assert.match(css, /:root:is\(:has\(#tabmail\)/);
+  assert.doesNotMatch(css, /:root\s*\{[^}]*(?<![\w-])font-size\s*:/, "an unscoped :root block sets font-size");
+});
