@@ -1,12 +1,12 @@
 # Thunderbird Tangaroa
 
-**English** · [Русский](README.ru.md) · [Contents](#whats-included) · [Installation](#installation-on-a-new-mac) · [Checks](#checking-the-result) · [Rollback](#rollback)
+**English** · [Русский](README.ru.md) · [Contents](#whats-included) · [Installation](#installation) · [Checks](#checking-the-result) · [Rollback](#rollback)
 
-A Thunderbird appearance for macOS that comes close to Postbox with its Tangaroa theme: a single-line message list with columns, a dark folder pane, the macOS system font and a light reading area. The kit was put together after Postbox stopped being updated, to keep the familiar look of mail in Thunderbird. It is an adaptation of the [Postbird](https://github.com/Ocanamat/Postbird) styles with the Tangaroa palette.
+A Thunderbird appearance that comes close to Postbox with its Tangaroa theme: a single-line message list with columns, a dark folder pane, the system font and a light reading area. The kit was put together after Postbox stopped being updated, to keep the familiar look of mail in Thunderbird. It is an adaptation of the [Postbird](https://github.com/Ocanamat/Postbird) styles with the Tangaroa palette.
 
 The Postbox-style account list above the folder tree comes from a separate extension, [AccountPane](https://github.com/stupalov/thunderbird-account-pane). The theme and the extension are independent and can be used together.
 
-Checked with Thunderbird **157.0.1** and **158.0** on macOS 27 (Apple Silicon). Windows and Linux have not been checked. The styles target Thunderbird's internal interface elements, so a major Thunderbird update may require adjustments. Apple Mail is not affected by this kit.
+The kit is plain userChrome CSS and preferences, so it installs the same way on macOS, Windows and Linux. So far it has been checked with Thunderbird **157.0.1** and **158.0** on macOS 27 (Apple Silicon); on Windows and Linux the system font and some spacing may differ and have not been checked yet. The styles target Thunderbird's internal interface elements, so a major Thunderbird update may require adjustments.
 
 ## What's included
 
@@ -17,7 +17,7 @@ Checked with Thunderbird **157.0.1** and **158.0** on macOS 27 (Apple Silicon). 
 
 The kit contains no mail accounts, addresses, passwords, messages, server settings or extensions. Favorite folders depend on your accounts and are set up by hand.
 
-## Installation on a new Mac
+## Installation
 
 Download the archive from the [Releases](https://github.com/stupalov/thunderbird-tangaroa/releases) page or via Code → Download ZIP, and unpack it.
 
@@ -25,13 +25,13 @@ Download the archive from the [Releases](https://github.com/stupalov/thunderbird
 
 Install Thunderbird from the [official site](https://www.thunderbird.net/) and start it at least once. Add your mail accounts the usual way.
 
-In Thunderbird open **≡ → Help → Troubleshooting Information**. In the **Profile Folder** row click **Show in Finder** and leave that window open.
+In Thunderbird open **≡ → Help → Troubleshooting Information**. In the **Profile Folder** row click **Show in Finder** / **Open Folder** and leave that window open.
 
-This is the active profile; its name differs on every computer. It usually lives inside `~/Library/Thunderbird/Profiles/`. Do not pick a profile just because its name looks similar, and do not copy anything into the application bundle. [Mozilla's official guide](https://support.mozilla.org/en-US/kb/profiles-where-thunderbird-stores-user-data).
+This is the active profile; its name differs on every computer. It usually lives in `~/Library/Thunderbird/Profiles/` on macOS, `%APPDATA%\Thunderbird\Profiles\` on Windows and `~/.thunderbird/` on Linux. Do not pick a profile just because its name looks similar, and do not copy anything into the application folder. [Mozilla's official guide](https://support.mozilla.org/en-US/kb/profiles-where-thunderbird-stores-user-data).
 
 ### 2. Quit Thunderbird and keep the original state
 
-Quit the application completely via **Thunderbird → Quit Thunderbird** or **⌘Q**. Closing a window is not enough.
+Quit the application completely: **Thunderbird → Quit Thunderbird** (**⌘Q**) on macOS, **≡ → Exit** on Windows and Linux. Closing a window is not enough.
 
 On a fresh installation it is convenient to copy the whole profile folder and keep it apart from the kit, so the original settings can be restored. If the profile already has `chrome/` or `user.js`, set them aside. A profile with another theme needs a manual merge; the steps below assume a clean installation.
 
@@ -58,7 +58,7 @@ The result should look like this:
         └── README.md
 ```
 
-There must be no `chrome/chrome/` and no `<profile>/settings/user.js`. File names must end in `.css` and `.js` without an extra `.txt`. If you save files by hand, use plain text, not RTF.
+There must be no `chrome/chrome/` and no `<profile>/settings/user.js`. File names must end in `.css` and `.js` without an extra `.txt`. If you save files by hand, use plain text, not RTF or a Word document.
 
 ### 4. First start
 
@@ -91,8 +91,8 @@ The styles set the header text to **12 px** and the subject to **18 px**. The bo
 
 | Element | Setting |
 |---|---|
-| Message list | macOS system font, 13 px |
-| Folder and account names | macOS system font, 13 px |
+| Message list | System font, 13 px |
+| Folder and account names | System font, 13 px |
 | Folder pane section labels and column headers | 11 px |
 | Header of an open message | 12 px |
 | Large message subject | 18 px |
@@ -102,7 +102,7 @@ The styles set the header text to **12 px** and the subject to **18 px**. The bo
 
 `mail.uifontsize = 15` is needed for Thunderbird's own row height: at density 1 it computes `ceil(15 × 1.4) + 7 = 28 px`, while the styles set the visible text to 13 px separately. Do not replace 15 with 13. The virtual list height is not forced through CSS, so scrolling stays intact.
 
-For message text the kit sets: Latin 13 px, Cyrillic 12 px; monospace Menlo, serif Verdana, sans-serif Menlo. These are the original personal choices rather than part of the Tangaroa palette; change them after the one-time application if you prefer something else.
+The interface font stack is the macOS system font with a generic sans-serif fallback, so other systems use their default sans-serif. For message text the kit sets: Latin 13 px, Cyrillic 12 px; monospace Menlo, serif Verdana, sans-serif Menlo (fonts that are missing on a system fall back to its defaults). These are the original personal choices rather than part of the Tangaroa palette; change them after the one-time application if you prefer something else.
 
 ## Installation without user.js
 

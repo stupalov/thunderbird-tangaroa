@@ -1,4 +1,4 @@
-// Thunderbird Tangaroa (macOS): appearance preferences only.
+// Thunderbird Tangaroa: appearance preferences only.
 // Copy to the ACTIVE PROFILE root while Thunderbird is closed.
 // After the first successful start, quit and rename to user.js.applied.
 // Leaving user.js in place reapplies these preferences on every startup.
