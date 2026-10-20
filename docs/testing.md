@@ -14,8 +14,6 @@ Notes:
 
 ## 0.2.0 native checks
 
-Checks use fictional profiles only; no real mail data is recorded here.
-
 ### Windows 11, light mode
 
 Thunderbird 158.0, Windows light mode, `tangaroa-0.2.0.xpi`, Thunderbird defaults, AccountPane 0.1.9 active. Captures are kept outside Git.
