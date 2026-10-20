@@ -18,12 +18,28 @@ Checks use fictional profiles only; no real mail data is recorded here.
 
 ### Windows 11, light mode
 
-Thunderbird 158.0, Windows light mode, `tangaroa-0.2.0.xpi` installed through Add-ons Manager, Thunderbird defaults (old 0.1 kit and font/density prefs removed), AccountPane 0.1.9 active. Captures are kept outside Git.
+Thunderbird 158.0, Windows light mode, `tangaroa-0.2.0.xpi`, Thunderbird defaults, AccountPane 0.1.9 active. Captures are kept outside Git.
 
-- Default view after install is the cards view. Navy sidebar (#1E2D3F), orange unread badge, bright blue current-account row and focused card/row selection, light blue-grey toolbar/tab strip, light list and message pane: all match the Postbox Tangaroa reference.
-- An unfocused selected card/row is pale blue-grey, as in the reference; a focused one is blue with light text.
-- Table view, cards view, message pane header (sender, subject, action buttons readable), message tab (blue tab line), quick filter bar, status bar and the AccountPane list with All Accounts collapsed and expanded all render correctly.
-- Fixes needed: none.
-- Not covered: hover states, the labelled unified toolbar (not shown by this profile's default toolbar), dark mode (Task 7).
+How this check was run:
 
-Pending (Tasks 7–8).
+- Profile prep: `chrome` renamed to `chrome.off`, `user.js` removed, kit prefs (font, density, list view, pane config, button style, legacy stylesheets, active theme id) removed from `prefs.js`.
+- Windows light mode confirmed (`AppsUseLightTheme` and `SystemUsesLightTheme` = 1).
+- Install by keyboard: Tools, Add-ons and Themes, gear button, Install Add-on From File..., path, Alt+A to confirm, Alt+O on the "was added" notice. The theme was enabled immediately.
+- Display-menu gotcha: in the message list display menu, pressing Up from nothing wraps to "Hide Message List Header". It was hidden by mistake once and restored via View, Layout.
+
+Results:
+
+- Matches the Postbox Tangaroa reference: navy sidebar (#1E2D3F), orange unread badge, light list, light message header (readable), blue tab line, cards and table views both themed.
+- Selection: a focused selection is the Tangaroa `#55ADF8` (Postbox's own `--selector`) with light text. The reference image shows unfocused (muted) selections; unfocused selections in the captures are pale blue-grey like the reference. The difference is focus state, not a theme defect.
+- Table view (`02b`, `02c`): at the default narrow pane width the columns are truncated ("Sub", "Corr..."); this is pane width, not the theme.
+- Quick filter bar (`05-light-quickfilter-table.png`): the bar opens with the filter field and button themed in the light palette; nothing beyond that was checked.
+- AccountPane list renders correctly with All Accounts collapsed and expanded (`04-light-accountpane.png`).
+
+Known differences (structural, not theme):
+
+- The test profile shows no labelled unified toolbar (only the search row), so the toolbar gradient and button labels were not compared.
+- Thunderbird has no Postbox attributes/favorites column.
+
+Not covered: hover states, dark mode (Task 7).
+
+Pending (Tasks 7-8).
