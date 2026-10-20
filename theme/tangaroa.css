@@ -144,12 +144,13 @@ unified-toolbar,
   background-color: var(--tg-tab-inactive) !important;
   border-bottom: 1px solid var(--tg-divider-light) !important;
 }
-.tabmail-tab .tab-background:not([selected="true"]) {
+/* Thunderbird toggles a valueless [selected] attribute on tabs. */
+.tabmail-tab .tab-background:not([selected]) {
   background-color: var(--tg-tab-inactive) !important;
   background-image: none !important;
 }
-.tabmail-tab[selected="true"] .tab-background,
-.tabmail-tab .tab-background[selected="true"] {
+.tabmail-tab[selected] .tab-background,
+.tabmail-tab .tab-background[selected] {
   background-color: var(--tg-tab-active) !important;
   background-image: none !important;
 }
@@ -332,4 +333,23 @@ unified-toolbar,
 }
 #status-bar :is(#statusText, .statusbarpanel) {
   color: var(--tg-font-secondary) !important;
+}
+
+/* -------------------------------------------------- menus (dark only) */
+/* Context and menu-bar menus ignore the theme's popup colours: toolkit
+ * popup.css sets --panel-background-color: Menu on every non-arrow
+ * menupopup, so on Windows dark mode they render system grey (#222222).
+ * Recolour them with the navy palette in the dark variant only; the light
+ * variant keeps the native menu, which already matches. */
+@media (prefers-color-scheme: dark) {
+  :is(menupopup, panel):where(:not([type="arrow"])) {
+    --panel-background-color: var(--tg-bg-secondary) !important;
+    --panel-text-color: var(--tg-font-primary) !important;
+    --panel-border-color: var(--tg-divider-dark) !important;
+  }
+  :is(menu, menuitem)[_moz-menuactive]:not([disabled]) {
+    background-color: var(--tg-hover) !important;
+    color: var(--tg-font-primary) !important;
+  }
+  menuseparator { border-color: var(--tg-divider-dark) !important; }
 }

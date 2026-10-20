@@ -40,4 +40,59 @@ Known differences (structural, not theme):
 
 Not covered: hover states, dark mode (Task 7).
 
-Pending (Tasks 7-8).
+### Windows 11, dark mode
+
+Thunderbird 158.0, Windows dark mode, `tangaroa-0.2.0.xpi`, AccountPane 0.1.9 active, same profile as the light check. Captures (`05`-`15`) are kept outside Git.
+
+How this check was run:
+
+- Dark mode switched live: `AppsUseLightTheme` and `SystemUsesLightTheme` = 0 under the user's `Personalize` key. Thunderbird swapped from `theme` to `dark_theme` within seconds, without a restart.
+- No manual settings: the profile has no `user.js` and no `chrome` folder; `prefs.js` has no density, font size, list view or colour-scheme prefs. The only theme prefs are `extensions.activeThemeID` and `browser.theme.content-theme`/`toolbar-theme`, which Thunderbird writes itself when the theme changes. Captures use the default density, font size and cards view.
+- Reinstall gotcha: reinstalling the XPI with the same id updates the manifest colours live, but the `theme_experiment` stylesheet stays cached until Thunderbird restarts. After a CSS change, restart Thunderbird before taking captures.
+- Pixel colours were read from the captures; contrast is WCAG 2 with rgba text composited over its background.
+
+Matches the Postbox Midnight roles:
+
+- Every neutral surface is Tangaroa navy (hue 211-214°): toolbar gradient `#253649` to `#1A2838` (lightest), sidebar `#1E2D3F`, message header, thread header, status bar and menus `#1A2838`, list `#16222F` (darkest), inactive tabs `#172330`, selected tab `#1E2D3F`.
+- Key colours are unchanged: focused selection `#55ADF8`, orange badge `#dd491a`, sidebar `#1E2D3F`, list `#16222F`.
+- Unfocused selections use Midnight's alphas: list `rgba(255,255,255,0.2)`, which shows as `#454F59`, the muted blue-grey from the reference; sidebar 0.1.
+- Text uses Midnight's alphas: primary 0.95 white, secondary 0.7 white.
+
+Contrast (text on its own background):
+
+| Pair | Ratio |
+| --- | --- |
+| List text / `#16222F` | 14.6 |
+| List secondary (sender, date) / `#16222F` | 8.5 |
+| Unfocused selected card, primary / secondary | 7.8 / 5.1 |
+| Thread header, message header labels, status bar / `#1A2838` | 8.0 |
+| Message header text / `#1A2838` | 13.6 |
+| Sidebar text / secondary on `#1E2D3F` | 13.4 / 7.6 |
+| Toolbar text / `#253649` | 11.3 |
+| Search field / focused search field | 8.4 / 7.5 |
+| Tab text, inactive / selected | 14.5 / 12.8 |
+| Menu and popup text / `#1A2838`; hovered item | 13.6 / 7.9 |
+| Hovered list row | 8.5 |
+| Focused selection, white / `#55ADF8` (key colour) | 2.4 |
+| Badge, white / `#dd491a` (key colour) | 4.2 |
+
+Changes made (dark palette, plus two stylesheet fixes):
+
+- `tg_font_secondary`, `tg_font_secondary_sidebar`, `tab_background_text`, `icons`: `#8494A3` to `rgba(255,255,255,0.7)`. `#8494A3` measured 4.1 on an unfocused selected card, 4.5 on the sidebar and 4.0 on the frame; the Midnight alpha gives 5.1-8.5.
+- `tg_selector_thread_inactive`: 0.08 to 0.2. At 0.08 an unfocused selected card was hard to tell from the list. `tg_selector_inactive` and `tg_selector_sidebar_inactive`: 0.12 to 0.1 (Midnight values).
+- `toolbar_field` / `toolbar_field_focus`: `rgba(255,255,255,0.10/0.16)` to the opaque `#3B4A5B` / `#485666`, which are the same alphas pre-composited over the toolbar. Thunderbird raises a focused-field colour below 0.9 opacity to 0.9 and switches the text to black, so with the old values the focused global search field turned light grey (`#EAEBED`) with black text.
+- Stylesheet, dark variant only: context menus ignore the theme's `popup` colours (toolkit `popup.css` sets `--panel-background-color: Menu` on non-arrow menupopups), so they were system grey `#222222`. They now use `--tg-bg-secondary` with `--tg-hover` for the hovered item. The light variant keeps the native menu (`#EDEDED`, checked in `13`).
+- Stylesheet, both variants: the tab rules matched `[selected="true"]`, but Thunderbird sets a valueless `selected` attribute. Every tab, including the selected one, got the inactive colour. The rules now match `[selected]`: in dark mode the selected tab is `#1E2D3F` on `#172330`, in light mode `#CBD4E0` on `#B9C5D2` (checked in `14`).
+
+Known differences:
+
+- The message body is Thunderbird's native dark reader (`#18181B` for plain text; `#27272A` with no message selected), not navy. Theme stylesheets do not reach the content document. In the Midnight reference the body is white because that message is HTML.
+- White text on the `#55ADF8` focused selection is 2.4:1, and white on the `#dd491a` badge is 4.2:1. Both are Tangaroa key colours, the same in the light variant and in Postbox; they were kept as the spec requires. Unfocused selections meet 4.5:1.
+- The Spam folder icon (`--tg-icon-junk` `#55ADF8`) disappears on the focused `#55ADF8` folder selection. This happens in both variants.
+- The page contents of the Add-ons Manager are native dark grey (a content page).
+
+Not covered: table view in dark mode, the quick filter bar, compose and address book windows, hover states other than menu items.
+
+Back to light mode: setting both values to 1 restored the light variant live (`12`); list `#F9FAFC`, sidebar `#1E2D3F`, message header `#E5E9F2`, search field `#FFFFFF`.
+
+Pending (Task 8).
