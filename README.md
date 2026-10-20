@@ -6,7 +6,7 @@ A Thunderbird appearance that comes close to Postbox with its Tangaroa theme: a 
 
 The Postbox-style account list above the folder tree comes from a separate extension, [AccountPane](https://github.com/stupalov/thunderbird-account-pane). The theme and the extension are independent and can be used together.
 
-The kit is plain userChrome CSS and preferences, so it installs the same way on macOS, Windows and Linux. So far it has been checked with Thunderbird **157.0.1** and **158.0** on macOS 27 (Apple Silicon); on Windows and Linux the system font and some spacing may differ and have not been checked yet. The styles target Thunderbird's internal interface elements, so a major Thunderbird update may require adjustments.
+The kit is plain userChrome CSS and preferences, so it installs the same way on macOS, Windows and Linux. It has been checked with Thunderbird **157.0.1** and **158.0** on macOS 27 (Apple Silicon) and, in a quick check, with Thunderbird **158.0** on Windows 11 (see below). Linux has not been checked. The styles target Thunderbird's internal interface elements, so a major Thunderbird update may require adjustments.
 
 ## What's included
 
@@ -122,6 +122,10 @@ The font preferences are listed in full in `settings/user.js`. Restart Thunderbi
 ## Extensions
 
 No extensions are required for this appearance. The Postbox-style split of the folder pane into an account list and the folders of the selected account is provided by [AccountPane](https://github.com/stupalov/thunderbird-account-pane); its rows and counters have been checked together with this theme.
+
+## Windows notes
+
+A quick check on Windows 11 (Thunderbird 158.0 x64 in a virtual machine, fictional accounts): the kit installs the same way and renders the dark folder pane, orange unread badges, the single-line table list, the light reading area and the toolbar gradient. The interface falls back to the Windows system font (Segoe UI). With Windows in dark mode and Thunderbird's default **System theme — auto**, the message header text is hard to read on the light header background, so select the built-in **Light** theme as step 4 says; the Light theme itself was not verified on Windows in that check. The message body area follows the selected Thunderbird theme.
 
 ## Checking the result
 

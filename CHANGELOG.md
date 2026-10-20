@@ -4,7 +4,8 @@ User-facing changes, newest first.
 
 ## Unreleased
 
-- Installation guide no longer assumes macOS: profile locations and quit steps for macOS, Windows and Linux; Windows and Linux remain unchecked.
+- Installation guide no longer assumes macOS: profile locations and quit steps for macOS, Windows and Linux.
+- Quick check on Windows 11 with Thunderbird 158.0: the kit renders as on macOS with the Segoe UI fallback; with Windows dark mode and the System theme the message header text is low-contrast, so the Light theme is recommended. Linux remains unchecked.
 
 ## 0.1.0
 
