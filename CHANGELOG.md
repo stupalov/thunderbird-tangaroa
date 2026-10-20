@@ -2,10 +2,13 @@
 
 User-facing changes, newest first.
 
-## Unreleased
+## 0.2.0
 
-- Installation guide no longer assumes macOS: profile locations and quit steps for macOS, Windows and Linux.
-- Quick check on Windows 11 with Thunderbird 158.0: the kit renders as on macOS with the Segoe UI fallback; with Windows dark mode and the System theme the message header text is low-contrast, so the Light theme is recommended. Linux remains unchecked.
+- The kit becomes an installable static Thunderbird theme with a `theme_experiment` stylesheet; install it from an `.xpi` file instead of copying files into the profile.
+- Adds a dark variant based on Postbox Midnight with Tangaroa's key colours.
+- The theme follows the system colour scheme.
+- No manual profile settings are needed: `user.js`, `userChrome.css` and `userContent.css` are no longer used.
+- Migration: delete `chrome/userChrome.css`, `chrome/userContent.css`, `chrome/postbird/`, `user.js` and `user.js.applied` from the profile before installing the theme.
 
 ## 0.1.0
 
