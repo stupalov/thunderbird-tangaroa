@@ -1,4 +1,4 @@
-/* Postbird Tangaroa — local macOS adaptation. See postbird/README.md. */
+/* Thunderbird Tangaroa — macOS adaptation of Postbird. See postbird/README.md. */
 @import url("postbird/config.css");
 @import url("postbird/components/typography.css");
 @import url("postbird/components/folderpane.css") not (forced-colors: active);

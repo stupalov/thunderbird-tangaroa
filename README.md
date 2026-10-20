@@ -1,65 +1,53 @@
-# Postbird Tangaroa для Thunderbird на macOS
+# Thunderbird Tangaroa
 
-Переносимый комплект оформления, приближённого к Postbox с темой Tangaroa.
-Это локальная адаптация [Postbird](https://github.com/Ocanamat/Postbird): однострочный список с колонками,
-тёмная левая панель, системный шрифт macOS и светлая область чтения.
+**English** · [Русский](README.ru.md) · [Contents](#whats-included) · [Installation](#installation-on-a-new-mac) · [Checks](#checking-the-result) · [Rollback](#rollback)
 
-Проверено в Thunderbird **157.0.1** на macOS **27.0.1**, 5 октября 2026 года.
-Другие версии Thunderbird и Windows/Linux пока не проверялись.
-Используются внутренние элементы интерфейса Thunderbird: после большого обновления оформление может потребовать поправок.
-Apple Mail этим комплектом не настраивается.
+A Thunderbird appearance for macOS that comes close to Postbox with its Tangaroa theme: a single-line message list with columns, a dark folder pane, the macOS system font and a light reading area. The kit was put together after Postbox stopped being updated, to keep the familiar look of mail in Thunderbird. It is an adaptation of the [Postbird](https://github.com/Ocanamat/Postbird) styles with the Tangaroa palette.
 
-## Что входит
+The Postbox-style account list above the folder tree comes from a separate extension, [AccountPane](https://github.com/stupalov/thunderbird-account-pane). The theme and the extension are independent and can be used together.
 
-- `chrome/` — все стили оформления, готовые к копированию.
-- `settings/user.js` — выбранные настройки внешнего вида и шрифтов для первого запуска.
-- `LICENSE` — лицензия Postbird.
-- `ATTRIBUTION.md` — происхождение компонентов и сведения об адаптации.
+Checked with Thunderbird **157.0.1** and **158.0** on macOS 27 (Apple Silicon). Windows and Linux have not been checked. The styles target Thunderbird's internal interface elements, so a major Thunderbird update may require adjustments. Apple Mail is not affected by this kit.
 
-В комплекте нет почтовых аккаунтов, адресов, паролей, писем, настроек серверов и установленных расширений.
-Расположение избранных папок зависит от ваших аккаунтов и задаётся вручную.
+## What's included
 
-## Установка на новом Mac
+- `chrome/` — the stylesheets, ready to copy into a profile. The `chrome/postbird/` subfolder keeps the structure of the original Postbird.
+- `settings/user.js` — appearance and font preferences for the first start.
+- `LICENSE` — the MIT license of this kit; the Postbird license is kept in `chrome/postbird/LICENSE`.
+- `ATTRIBUTION.md` — where the components come from and what was adapted.
 
-### 1. Создайте профиль Thunderbird
+The kit contains no mail accounts, addresses, passwords, messages, server settings or extensions. Favorite folders depend on your accounts and are set up by hand.
 
-Установите Thunderbird из [официального источника](https://www.thunderbird.net/), запустите его хотя бы один раз.
-Почтовые аккаунты добавьте обычным способом; учётные данные в комплект не входят.
+## Installation on a new Mac
 
-В Thunderbird откройте **≡ → Справка → Информация для решения проблем**
-(**Help → Troubleshooting Information**).
-В строке **Папка профиля / Profile Folder** нажмите **Показать в Finder / Show in Finder**.
-Оставьте это окно Finder открытым.
+Download the archive from the [Releases](https://github.com/stupalov/thunderbird-tangaroa/releases) page or via Code → Download ZIP, and unpack it.
 
-Так вы попадёте в активный профиль. Его имя на новом компьютере будет другим.
-Обычно он находится внутри `~/Library/Thunderbird/Profiles/`.
-Не выбирайте профиль только по похожему названию и не копируйте ничего в папку самого приложения.
-[Официальная инструкция Mozilla](https://support.mozilla.org/en-US/kb/profiles-where-thunderbird-stores-user-data).
+### 1. Find the Thunderbird profile
 
-### 2. Закройте Thunderbird и сохраните исходное состояние
+Install Thunderbird from the [official site](https://www.thunderbird.net/) and start it at least once. Add your mail accounts the usual way.
 
-Полностью завершите приложение через **Thunderbird → Завершить Thunderbird** или **⌘Q**.
-Закрытие одного окна недостаточно.
+In Thunderbird open **≡ → Help → Troubleshooting Information**. In the **Profile Folder** row click **Show in Finder** and leave that window open.
 
-На чистой установке удобно сделать копию всей папки нового профиля и хранить её локально отдельно от комплекта.
-Это позволит вернуть исходные настройки. Эта личная резервная копия в GitHub не загружается.
+This is the active profile; its name differs on every computer. It usually lives inside `~/Library/Thunderbird/Profiles/`. Do not pick a profile just because its name looks similar, and do not copy anything into the application bundle. [Mozilla's official guide](https://support.mozilla.org/en-US/kb/profiles-where-thunderbird-stores-user-data).
 
-Если в профиле уже есть `chrome/` или `user.js`, сохраните их отдельно.
-Для существующего профиля с другой темой потребуется объединение файлов: описанный ниже способ рассчитан на чистую установку.
+### 2. Quit Thunderbird and keep the original state
 
-### 3. Скопируйте файлы
+Quit the application completely via **Thunderbird → Quit Thunderbird** or **⌘Q**. Closing a window is not enough.
 
-Из распакованного комплекта скопируйте:
+On a fresh installation it is convenient to copy the whole profile folder and keep it apart from the kit, so the original settings can be restored. If the profile already has `chrome/` or `user.js`, set them aside. A profile with another theme needs a manual merge; the steps below assume a clean installation.
 
-1. Папку **`chrome` целиком** — в корень активного профиля.
-2. Файл **`settings/user.js`** — туда же, в корень профиля, под именем **`user.js`**.
+### 3. Copy the files
 
-Итоговая структура должна быть такой:
+From the unpacked kit copy:
+
+1. The whole **`chrome`** folder into the root of the active profile.
+2. The file **`settings/user.js`** into the same profile root, named **`user.js`**.
+
+The result should look like this:
 
 ```text
-<активный профиль>/
-├── prefs.js                 ← Thunderbird создал его сам
-├── user.js                  ← скопирован из settings/
+<active profile>/
+├── prefs.js                 ← created by Thunderbird itself
+├── user.js                  ← copied from settings/
 └── chrome/
     ├── userChrome.css
     ├── userContent.css
@@ -70,171 +58,108 @@ Apple Mail этим комплектом не настраивается.
         └── README.md
 ```
 
-Не должно получиться `chrome/chrome/` или `<профиль>/settings/user.js`.
-Имена файлов должны заканчиваться на `.css` и `.js`, без дополнительного `.txt`.
-При сохранении вручную используйте обычный текст, не формат RTF.
+There must be no `chrome/chrome/` and no `<profile>/settings/user.js`. File names must end in `.css` and `.js` without an extra `.txt`. If you save files by hand, use plain text, not RTF.
 
-### 4. Первый запуск
+### 4. First start
 
-Запустите Thunderbird. Проверьте тёмную левую панель и светлую область списка/чтения.
+Start Thunderbird. Check the dark folder pane and the light list and reading areas.
 
-Для совпадения с проверенным видом выберите встроенную тему **Светлая / Light**:
-**≡ → Дополнения и темы → Темы** (**Add-ons and Themes → Themes**).
+To match the checked look, select the built-in **Light** theme: **≡ → Add-ons and Themes → Themes**.
 
-После успешного запуска снова завершите Thunderbird и переименуйте файл в профиле
-**`user.js` → `user.js.applied`**. Затем откройте приложение.
+After a successful start quit Thunderbird again and rename **`user.js` → `user.js.applied`** in the profile, then start the application. This applies the preferences once; the values are already saved in `prefs.js`. If `user.js` stays in place, it reapplies the values at every start and changes made in the interface are reverted.
 
-Это применение настроек один раз. Значения уже сохранены Thunderbird в `prefs.js`.
-Если оставить `user.js`, он будет повторно задавать значения при каждом запуске;
-последующие изменения через интерфейс будут возвращаться к значениям комплекта.
+### 5. Finish the pane layout
 
-### 5. Доведите расположение панелей
+Some values are already applied by `user.js`. Pane widths, favorite folders, columns and the message header are set by hand:
 
-Часть этих значений уже применена файлом user.js. Проверьте их в интерфейсе;
-ширину панелей, избранные папки, колонки и заголовок письма настройте вручную:
+- **View → Layout → Classic View**: folders on the left, message list top right, message below. If the message pane is hidden, show it (the standard key is **F8**).
+- In the message list display menu next to the folder name choose **Table View** if the list still shows cards.
+- Keep the **Default** density; `mail.uidensity = 1` in the kit sets it automatically.
+- Drag the folder pane border to about **285 px** and adjust the list and message heights to your screen.
+- In the folder pane modes enable **Favorite Folders** and **All Folders**. Add folders to favorites via their context menu.
+- Columns as in the checked look: thread status, read, star, subject, correspondents, attachments, date, junk, size. Order them by dragging the headers; sort by date, newest first. The columns menu can apply them to other folders.
+- Toolbar: icons with labels below. Main actions: get messages, write, reply, reply all, forward, tag, archive, delete, address book.
+- Hide the Spaces toolbar and other bars via the **View** menu if you do not need them.
 
-- Выберите **Вид → Расположение → Классический вид / View → Layout → Classic View**:
-  папки слева, список писем справа сверху, письмо снизу.
-  Включите область сообщения, если она скрыта; стандартная клавиша — **F8**.
-- В меню **Message list display options** рядом с заголовком папки выберите
-  **Table View / Табличный вид**, если список всё ещё показывает карточки.
-- Оставьте плотность **Default / По умолчанию**. Параметр `mail.uidensity = 1` в комплекте задаёт её автоматически.
-- Перетяните границу левой панели примерно до **285 px** и подберите высоту списка/письма под экран.
-  На другом разрешении удобная ширина может отличаться.
-- В меню режимов панели папок включите **Favorite Folders / Избранные папки**
-  и **All Folders / Все папки**. Нужные папки добавьте в избранное через контекстное меню каждой папки.
-- Если нужны те же колонки, через кнопку выбора колонок справа от заголовков включите:
-  статус цепочки, прочитано, звезда, тема, корреспонденты, вложения, дата, спам и размер.
-  Перетаскиванием заголовков задайте этот порядок.
-  Проверьте сортировку по дате, новые письма сверху.
-  Если колонки отличаются в других папках, примените их к нужным папкам через меню колонок
-  или настройте эти папки отдельно.
-- Для совпадения панели кнопок оставьте значки с подписями снизу. Основные действия:
-  получение почты, написать, ответить, ответить всем, переслать, метка, архив, удалить, адресная книга.
-  Состав кнопок задаётся через настройку панели инструментов.
-- При необходимости скройте боковую панель Spaces и лишние панели через меню **Вид / View**.
+### 6. Header of an open message
 
-### 6. Заголовок открытого письма
+Open a message and its header settings via **More → Customize**. For the checked look enable the regular-size avatar, the full sender address and the large subject; keep field labels visible and the button style default.
 
-Откройте письмо и настройку его заголовка через меню **Ещё / More → Настроить / Customize**.
-Для проверенного вида включите аватар обычного размера, полный адрес отправителя и крупную тему;
-подписи полей оставьте видимыми, стиль кнопок — стандартным.
+The styles set the header text to **12 px** and the subject to **18 px**. The body of an HTML message may carry its own sizes: the kit does not replace fonts and colors set by the sender.
 
-Стили задают размер текста заголовка **12 px**, темы **18 px**.
-Положение полей остаётся штатным для Thunderbird. Текст самого HTML-письма может иметь собственные размеры:
-комплект не заменяет все шрифты и цвета, заданные отправителем.
+## Text and row sizes
 
-## Размеры текста и строк
-
-| Элемент | Настройка |
+| Element | Setting |
 |---|---|
-| Список писем | Системный шрифт macOS, 13 px |
-| Названия папок и аккаунтов | Системный шрифт macOS, 13 px |
-| Названия разделов слева и заголовки колонок | 11 px |
-| Заголовок открытого письма | 12 px |
-| Крупная тема письма | 18 px |
-| Подписи основных кнопок | 11 px |
-| Строка списка писем в проверенной версии | 28 px |
-| Основной размер текста области письма | 13 px, внутренние размеры HTML сохраняются |
+| Message list | macOS system font, 13 px |
+| Folder and account names | macOS system font, 13 px |
+| Folder pane section labels and column headers | 11 px |
+| Header of an open message | 12 px |
+| Large message subject | 18 px |
+| Main toolbar labels | 11 px |
+| Message list row | 28 px |
+| Base text size of the message area | 13 px, sizes inside HTML are kept |
 
-`mail.uifontsize = 15` нужен для **штатного расчёта высоты строк**.
-При плотности 1 Thunderbird 157 рассчитывает строку как `ceil(15 × 1.4) + 7 = 28 px`.
-Стили отдельно задают видимый текст 13 px.
-Поэтому для этого вида значение 15 не следует заменять на 13.
-Высота виртуального списка не принуждается через CSS, чтобы не нарушать прокрутку.
+`mail.uifontsize = 15` is needed for Thunderbird's own row height: at density 1 it computes `ceil(15 × 1.4) + 7 = 28 px`, while the styles set the visible text to 13 px separately. Do not replace 15 with 13. The virtual list height is not forced through CSS, so scrolling stays intact.
 
-Для текста писем перенесены текущие настройки:
-латиница — 13 px, кириллица — 12 px; моноширинный шрифт Menlo, serif — Verdana,
-sans-serif — Menlo. Это личный выбор исходной настройки, а не обязательная часть палитры Tangaroa.
-Если предпочитаете другое отображение обычных текстовых писем, измените эти значения после разового применения.
+For message text the kit sets: Latin 13 px, Cyrillic 12 px; monospace Menlo, serif Verdana, sans-serif Menlo. These are the original personal choices rather than part of the Tangaroa palette; change them after the one-time application if you prefer something else.
 
-## Установка без user.js
+## Installation without user.js
 
-Вместо копирования `settings/user.js` можно открыть
-**≡ → Настройки → Основные → Редактор настроек / Settings → General → Config Editor**
-и вручную выставить значения из этого файла.
-[Как открыть и использовать редактор настроек](https://support.mozilla.org/en-US/kb/config-editor).
+Instead of copying `settings/user.js`, open **≡ → Settings → General → Config Editor** ([how to open it](https://support.mozilla.org/en-US/kb/config-editor)) and set the values by hand. The minimum for the appearance and row height:
 
-Минимум для оформления и размера строк:
-
-| Имя настройки | Тип | Значение |
+| Preference | Type | Value |
 |---|---|---|
-| `toolkit.legacyUserProfileCustomizations.stylesheets` | Логическое | `true` |
-| `mail.uifontsize` | Число | `15` |
-| `mail.uidensity` | Число | `1` |
-| `mail.threadpane.listview` | Число | `1` |
-| `mail.pane_config.dynamic` | Число | `0` |
-| `toolbar.unifiedtoolbar.buttonstyle` | Число | `1` |
+| `toolkit.legacyUserProfileCustomizations.stylesheets` | Boolean | `true` |
+| `mail.uifontsize` | Number | `15` |
+| `mail.uidensity` | Number | `1` |
+| `mail.threadpane.listview` | Number | `1` |
+| `mail.pane_config.dynamic` | Number | `0` |
+| `toolbar.unifiedtoolbar.buttonstyle` | Number | `1` |
 
-Шрифтовые настройки приведены полностью в `settings/user.js`.
-После ручной настройки перезапустите Thunderbird.
+The font preferences are listed in full in `settings/user.js`. Restart Thunderbird after setting them by hand.
 
-## Нужны ли расширения
+## Extensions
 
-Для этого оформления расширения **не обязательны**.
-QuickFolders, Web Translate и другие дополнения из исходного профиля не входят в комплект.
-Их можно установить отдельно из каталога дополнений Thunderbird, если нужны их функции.
+No extensions are required for this appearance. The Postbox-style split of the folder pane into an account list and the folders of the selected account is provided by [AccountPane](https://github.com/stupalov/thunderbird-account-pane); its rows and counters have been checked together with this theme.
 
-Разделение левой панели на список аккаунтов и папки только выбранного аккаунта пока не реализовано.
-Тема сама по себе не добавляет такое поведение; это отдельная будущая задача.
+## Checking the result
 
-## Проверка результата
+1. The message list shows rows with columns, not cards.
+2. The folder pane is dark blue and unread counters are orange.
+3. Open a familiar message and compare the subject, header and text size.
+4. Scroll a long list down and back: rows render without gaps or overlaps.
+5. If the density looks noticeably different, check the active profile name and the values 15 and 1.
 
-1. В списке писем остаются строки с колонками, а не карточки.
-2. Панель папок тёмно-синяя, счётчики непрочитанных оранжевые.
-3. Откройте письмо, которое знакомо вам по Postbox. Сравните тему, заголовок и размер текста/диффа.
-4. Прокрутите длинный список вниз и обратно: строки должны отображаться без пропусков и наложений.
-5. Проверьте имя активного профиля и значения 15/1, если плотность заметно отличается.
+## If the appearance does not show up
 
-Этот переносимый комплект проверен на целостность и отсутствие данных профиля.
-Его установка в отдельный чистый профиль на втором компьютере пока не выполнялась.
+- Check that the open profile is the one the `chrome` folder was copied into.
+- Check `toolkit.legacyUserProfileCustomizations.stylesheets = true`.
+- Make sure the `chrome/postbird/components` subfolder is present.
+- Check the file name extensions and restart Thunderbird completely.
+- If only the row height differs, check the density and `mail.uifontsize`.
+- After a Thunderbird update compare its version with the checked ones; internal element names may change.
 
-## Если оформление не появилось
+## Changing the theme
 
-- Проверьте, что открыт именно тот профиль, куда скопирована папка `chrome`.
-- Проверьте параметр `toolkit.legacyUserProfileCustomizations.stylesheets = true`.
-- Убедитесь, что сохранена подпапка `chrome/postbird/components`.
-- Проверьте расширения имён файлов и полностью завершите/заново откройте Thunderbird.
-- Если отличается только высота строк, проверьте плотность и `mail.uifontsize`.
-- После обновления Thunderbird сравните его версию с проверенной; внутренние имена элементов могут измениться.
+The palette and main sizes live in **`chrome/postbird/config.css`**. Components are split by interface area: folders, list, toolbar, tabs, header, status bar. A full Thunderbird restart is needed after edits.
 
-## Как изменить тему
+## Rollback
 
-Палитра и основные размеры находятся в **`chrome/postbird/config.css`**.
-Компоненты разделены по области интерфейса: папки, список, кнопки, вкладки, заголовок, строка состояния.
-После правок нужен полный перезапуск Thunderbird.
+To disable only the appearance:
 
-## Откат
+1. Quit Thunderbird.
+2. Rename `chrome/userChrome.css` to `userChrome.css.disabled`.
+3. Rename `chrome/userContent.css` to `userContent.css.disabled`.
+4. Delete or rename the active `user.js` if it still exists.
+5. Start Thunderbird.
 
-Чтобы отключить только оформление:
+Deleting `user.js` does not undo preferences that are already saved. To restore individual values, reset the preferences listed in the file via the Config Editor or restore your previous values from your own backup.
 
-1. Завершите Thunderbird.
-2. Переименуйте `chrome/userChrome.css` в `userChrome.css.disabled`.
-3. Переименуйте `chrome/userContent.css` в `userContent.css.disabled`.
-4. Удалите/переименуйте активный `user.js`, если он ещё существует.
-5. Запустите Thunderbird.
+A full rollback to a profile copy is fine right after setting up a clean installation. If you have already received mail, saved drafts or changed accounts since the copy, restore only the appearance and preferences: restoring the old profile also returns its data to the moment of the copy.
 
-Удаление `user.js` **не отменяет уже сохранённые настройки**.
-Для возврата отдельных значений сбросьте перечисленные в файле параметры через редактор настроек.
-Если до установки они имели собственные значения, верните эти значения из своей записи/резервной копии.
+## More information
 
-Полный откат к копии профиля подходит сразу после настройки чистой установки.
-Если после копирования профиля вы уже получали/создавали письма, сохраняли черновики или меняли аккаунты,
-возвращайте только оформление и необходимые настройки: восстановление старого профиля также вернёт его данные к моменту копии.
+[Changelog](CHANGELOG.md) · [Attribution](ATTRIBUTION.md) · [License](LICENSE)
 
-## GitHub
-
-Отдельный репозиторий **postbird-tangaroa** полезен для переноса между компьютерами,
-истории изменений и исправлений после обновлений Thunderbird.
-Для личного пользования этот репозиторий хранится приватно.
-
-Структура комплекта уже подходит для репозитория: стили, настройки, инструкция, лицензия и `.gitignore`.
-Храните репозиторий в отдельной папке, **вне живого профиля Thunderbird**.
-В GitHub отправляется только этот комплект, не резервные копии профиля.
-`.gitignore` помогает исключить типичные файлы профиля, но перед отправкой всё равно проверяйте состав изменений.
-
-Исходный Postbird указан в ATTRIBUTION.md; его лицензия сохранена.
-Этот комплект использует свою адаптацию CSS и значения палитры, без иконок, шрифтовых файлов и полного файла темы Postbox.
-Репозиторий: https://github.com/stupalov/postbird-tangaroa.
-На другом компьютере скачайте его ZIP через Code → Download ZIP либо клонируйте после входа в GitHub.
-Для доступа к приватному репозиторию нужен авторизованный аккаунт с правом чтения.
+Keep the repository in a separate folder outside the live Thunderbird profile; only the kit goes into Git, never profile backups. The original Postbird is credited in ATTRIBUTION.md and its license is kept. The kit uses its own CSS adaptation and palette values, without icons, font files or Postbox theme files. Thunderbird Tangaroa is an independent project, not an official Thunderbird or Postbox product.
