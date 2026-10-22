@@ -38,7 +38,7 @@ Known differences (structural, not theme):
 - The test profile shows no labelled unified toolbar (only the search row), so the toolbar gradient and button labels were not compared.
 - Thunderbird has no Postbox attributes/favorites column.
 
-Not covered: hover states, dark mode (Task 7).
+Not covered: hover states.
 
 ### Windows 11, dark mode
 
@@ -79,7 +79,7 @@ Contrast (text on its own background):
 Changes made (dark palette, plus two stylesheet fixes):
 
 - `tg_font_secondary`, `tg_font_secondary_sidebar`, `tab_background_text`, `icons`: `#8494A3` to `rgba(255,255,255,0.7)`. `#8494A3` measured 4.1 on an unfocused selected card, 4.5 on the sidebar and 4.0 on the frame; the Midnight alpha gives 5.1-8.5.
-- `tg_selector_thread_inactive`: 0.08 to 0.2. At 0.08 an unfocused selected card was hard to tell from the list. `tg_selector_inactive` and `tg_selector_sidebar_inactive`: 0.12 to 0.1 (Midnight values).
+- `tg_selector_thread_inactive`: 0.08 to 0.2. At 0.08 an unfocused selected card was hard to tell from the list. `tg_selector_sidebar_inactive`: 0.12 to 0.1 (Midnight values). `tg_selector_inactive` was removed as unused.
 - `toolbar_field` / `toolbar_field_focus`: `rgba(255,255,255,0.10/0.16)` to the opaque `#3B4A5B` / `#485666`, which are the same alphas pre-composited over the toolbar. Thunderbird raises a focused-field colour below 0.9 opacity to 0.9 and switches the text to black, so with the old values the focused global search field turned light grey (`#EAEBED`) with black text.
 - Stylesheet, dark variant only: context menus ignore the theme's `popup` colours (toolkit `popup.css` sets `--panel-background-color: Menu` on non-arrow menupopups), so they were system grey `#222222`. They now use `--tg-bg-secondary` with `--tg-hover` for the hovered item. The light variant keeps the native menu (`#EDEDED`, checked in `13`).
 - Stylesheet, both variants: the tab rules matched `[selected="true"]`, but Thunderbird sets a valueless `selected` attribute. Every tab, including the selected one, got the inactive colour. The rules now match `[selected]`: in dark mode the selected tab is `#1E2D3F` on `#172330`, in light mode `#CBD4E0` on `#B9C5D2` (checked in `14`).
@@ -94,8 +94,6 @@ Known differences:
 Not covered: table view in dark mode, the quick filter bar, compose and address book windows, hover states other than menu items.
 
 Back to light mode: setting both values to 1 restored the light variant live (`12`); list `#F9FAFC`, sidebar `#1E2D3F`, message header `#E5E9F2`, search field `#FFFFFF`.
-
-Pending (Task 8).
 
 ### macOS 27, light and dark (user check)
 

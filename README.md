@@ -22,7 +22,7 @@ The theme appears under **Themes** and is enabled. To switch back, choose anothe
 
 ## Light and dark
 
-The theme follows the system colour scheme. Thunderbird's own theme overrides are not supported, and the theme has no settings of its own.
+The theme follows the system colour scheme. The theme follows the system appearance only; Thunderbird's own light/dark override settings (the toolbar theme override and the message content colour-scheme override in the Config Editor) are not supported. The theme has no settings of its own.
 
 Known limitation: in the dark variant the body of an open message is painted by Thunderbird's dark reader in Thunderbird's own dark grey, not in the theme's navy. A theme cannot style message content. Each message has a header toggle that shows it in light colours instead.
 
@@ -37,6 +37,8 @@ Version 0.1 was a set of files copied into the profile. To move to the theme:
 1. Quit Thunderbird completely.
 2. In the profile delete `chrome/userChrome.css`, `chrome/userContent.css`, the `chrome/postbird/` folder, and `user.js` and `user.js.applied` if they exist.
 3. Start Thunderbird and install the theme as described above.
+
+Deleting the files does not undo the preferences the 0.1 `user.js` saved into `prefs.js`: `mail.uifontsize` (15), `mail.uidensity` (1), `mail.threadpane.listview` (1), `mail.pane_config.dynamic` (0), `toolbar.unifiedtoolbar.buttonstyle` (1), `toolkit.legacyUserProfileCustomizations.stylesheets` (true), and the `font.name.*` and `font.size.*` values for x-western and x-cyrillic (sans-serif and monospace Menlo, serif Verdana). They are harmless with the theme. If you want Thunderbird's defaults back, reset them in Settings, General, Config Editor (right-click a preference, Reset).
 
 ## Status
 

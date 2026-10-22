@@ -9,7 +9,7 @@ User-facing changes, newest first.
 - The theme follows the system colour scheme.
 - No manual profile settings are needed: `user.js`, `userChrome.css` and `userContent.css` are no longer used.
 - Known limitation: the body of an open message in the dark variant keeps Thunderbird's dark-reader grey; message content cannot be themed.
-- Migration: delete `chrome/userChrome.css`, `chrome/userContent.css`, `chrome/postbird/`, `user.js` and `user.js.applied` from the profile before installing the theme.
+- Migration: delete `chrome/userChrome.css`, `chrome/userContent.css`, `chrome/postbird/`, `user.js` and `user.js.applied` from the profile before installing the theme. Deleting the files does not undo the preferences the 0.1 `user.js` saved into `prefs.js` (UI font size and density, list view, pane layout, toolbar button style, legacy stylesheets, font families and sizes); they are harmless and can be reset in the Config Editor.
 
 ## 0.1.0
 
