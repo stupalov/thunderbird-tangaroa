@@ -1,0 +1,351 @@
+/* Tangaroa for Thunderbird 157+.
+ * Loaded by theme_experiment into every chrome document (messenger,
+ * about:3pane, about:message). The manifest maps each tg_* colour to the
+ * --tg-* variable of the same name; the :root values below are the light
+ * palette and only apply when that mapping is absent.
+ * Ported from the 0.1.0 userChrome kit; thread rows keep Thunderbird's height; account rows get 5px block padding and the header avatar size is set.
+ * The kit's userContent.css is not ported: theme stylesheets do not reach
+ * message content documents, so message bodies keep their own styling. */
+
+/* ---------------------------------------------------------------- :root */
+:root {
+  /* Colours mapped by theme_experiment (light defaults). */
+  --tg-bg-primary: #F9FAFC;
+  --tg-bg-secondary: #E5E9F2;
+  --tg-bg-sidebar: #1E2D3F;
+  --tg-toolbar-top: #E2E7EE;
+  --tg-toolbar-bottom: #C5D0DD;
+  --tg-tab-active: #CBD4E0;
+  --tg-tab-inactive: #B9C5D2;
+  --tg-divider-dark: #adb8c4;
+  --tg-divider-light: #D2D8E6;
+  --tg-selector: #55ADF8;
+  --tg-selector-sidebar: #55ADF8;
+  --tg-selector-sidebar-inactive: rgba(255,255,255,0.2);
+  --tg-selector-thread-inactive: #E4E9F3;
+  --tg-font-primary: #1E2D3F;
+  --tg-font-secondary: #5E6C79;
+  --tg-font-primary-sidebar: #F9FAFC;
+  --tg-font-secondary-sidebar: #8494A3;
+  --tg-font-primary-selected: #F9FAFC;
+  --tg-font-secondary-selected: #E5E9F2;
+  --tg-folder-bubble-bg: #dd491a;
+  --tg-folder-bubble-text: #FFFFFF;
+  --tg-unread-dot: #4AB1FF;
+  --tg-icon-get: #e59349;
+  --tg-icon-compose: #8ab2dc;
+  --tg-icon-reply: #4879a4;
+  --tg-icon-archive: #aa7391;
+  --tg-icon-delete: #bc6764;
+  --tg-icon-junk: #55ADF8;
+  --tg-icon-tag: #b89528;
+
+  /* Derived colours (not manifest keys). */
+  --tg-hover: color-mix(in srgb, var(--tg-font-secondary) 25%, transparent);
+  --tg-sidebar-divider: color-mix(in srgb, var(--tg-bg-sidebar) 82%, white);
+  --tg-toolbar-bg: linear-gradient(var(--tg-toolbar-top), var(--tg-toolbar-bottom));
+
+  /* Size tokens. */
+  --tg-ui-font-size: 13px;
+  --tg-list-font-size: 13px;
+  --tg-list-header-size: 11px;
+  --tg-folder-section-size: 11px;
+  --tg-folder-name-size: 13px;
+  --tg-message-header-size: 12px;
+  --tg-message-subject-size: 18px;
+  --tg-toolbar-label-size: 11px;
+  --tg-folder-badge-radius: 4px;
+  --tg-folder-badge-size: 11px;
+  --tg-font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+/* ----------------------------------------------------------- typography */
+/* Only messenger.xhtml (#tabmail), about:3pane (#folderPane) and
+ * about:message (#messageHeader); compose, address book and dialogs keep
+ * the user's interface font. */
+:root:is(:has(#tabmail), :has(#folderPane), :has(#messageHeader)) {
+  font-family: var(--tg-font-family) !important;
+  font-size: var(--tg-ui-font-size) !important;
+}
+#threadTree, #threadTree table { font-family: var(--tg-font-family) !important; font-size: var(--tg-list-font-size) !important; }
+#threadTree thead, #threadTree thead button { font-size: var(--tg-list-header-size) !important; }
+#folderPane, #folderTree, #folderTree li > .container > .name {
+  font-family: var(--tg-font-family) !important;
+  font-size: var(--tg-folder-name-size) !important;
+  font-weight: 400 !important;
+}
+#folderTree .mode-container > .mode-name {
+  font-family: var(--tg-font-family) !important;
+  font-size: var(--tg-folder-section-size) !important;
+  font-weight: 500 !important;
+}
+#folderTree :is(.unread-count, .total-count) {
+  font-size: var(--tg-folder-badge-size) !important; font-weight: 400 !important;
+}
+#messageHeader { font-family: var(--tg-font-family) !important; font-size: var(--tg-message-header-size) !important; }
+#messageHeader #expandedsubjectBox { font-size: var(--tg-message-subject-size) !important; font-weight: 500 !important; }
+#messageHeader .recipient-multi-line-name { font-size: var(--tg-message-header-size) !important; }
+#threadTree tbody > tr.table-layout[data-properties~="read"] { font-weight: 400 !important; }
+
+/* -------------------------------------------------------------- toolbar */
+unified-toolbar,
+#unifiedToolbarContainer,
+#toolbar-menubar {
+  background: var(--tg-toolbar-bg) !important;
+}
+#unifiedToolbar {
+  --toolbar-color: var(--tg-font-primary) !important;
+  --toolbar-bgcolor: var(--tg-toolbar-bottom) !important;
+  border-bottom: 1px solid var(--tg-divider-dark) !important;
+}
+#unifiedToolbarContent .button-label { color: var(--tg-font-primary) !important; }
+.unified-toolbar .unified-toolbar-button {
+  --button-padding: 3px !important;
+  gap: 2px !important;
+}
+.unified-toolbar .unified-toolbar-button .button-label {
+  font-size: var(--tg-toolbar-label-size) !important;
+}
+.unified-toolbar .get-messages .button-icon {
+  fill: color-mix(in srgb, var(--tg-icon-get) 20%, transparent) !important;
+  stroke: var(--tg-icon-get) !important;
+}
+.unified-toolbar .write-message .button-icon {
+  fill: color-mix(in srgb, var(--tg-icon-compose) 20%, transparent) !important;
+  stroke: var(--tg-icon-compose) !important;
+}
+.unified-toolbar :is(.reply, .reply-all, .reply-to-list, .forward-inline, .redirect) .button-icon {
+  fill: color-mix(in srgb, var(--tg-icon-reply) 20%, transparent) !important;
+  stroke: var(--tg-icon-reply) !important;
+}
+.unified-toolbar .archive .button-icon {
+  fill: color-mix(in srgb, var(--tg-icon-archive) 20%, transparent) !important;
+  stroke: var(--tg-icon-archive) !important;
+}
+.unified-toolbar .delete .button-icon {
+  fill: color-mix(in srgb, var(--tg-icon-delete) 20%, transparent) !important;
+  stroke: var(--tg-icon-delete) !important;
+}
+.unified-toolbar .junk .button-icon {
+  fill: color-mix(in srgb, var(--tg-icon-junk) 20%, transparent) !important;
+  stroke: var(--tg-icon-junk) !important;
+}
+.unified-toolbar .tag-message .button-icon {
+  fill: color-mix(in srgb, var(--tg-icon-tag) 20%, transparent) !important;
+  stroke: var(--tg-icon-tag) !important;
+}
+
+/* ----------------------------------------------------------------- tabs */
+#tabmail-tabs {
+  background-color: var(--tg-tab-inactive) !important;
+  border-bottom: 1px solid var(--tg-divider-light) !important;
+}
+/* Thunderbird toggles a valueless [selected] attribute on tabs. */
+.tabmail-tab .tab-background:not([selected]) {
+  background-color: var(--tg-tab-inactive) !important;
+  background-image: none !important;
+}
+.tabmail-tab[selected] .tab-background,
+.tabmail-tab .tab-background[selected] {
+  background-color: var(--tg-tab-active) !important;
+  background-image: none !important;
+}
+.tabmail-tab .tab-content {
+  color: var(--tg-font-primary) !important;
+}
+
+/* --------------------------------------------------------------- spaces */
+/* Recolour the rail only; native sizing and arrangement are kept. */
+#spacesToolbar { --spaces-bg-color: var(--tg-toolbar-top) !important; color: var(--tg-font-primary) !important; }
+.quickFoldersToolbar {
+  background: var(--tg-bg-secondary) !important;
+  color: var(--tg-font-primary) !important;
+  border-bottom-color: var(--tg-divider-dark) !important;
+}
+
+/* ---------------------------------------------------------- folder pane */
+/* Thunderbird's own folder row height is kept (no min-height override). */
+#folderPane {
+  --sidebar-background: var(--tg-bg-sidebar) !important;
+  --sidebar-color: var(--tg-font-primary-sidebar) !important;
+  --sidebar-border: var(--tg-sidebar-divider) !important;
+  --treeitem-background-selected: var(--tg-selector-sidebar-inactive) !important;
+  --treeitem-background-hover: var(--tg-hover) !important;
+  --treeitem-background-active: var(--tg-selector-sidebar) !important;
+  --treeitem-text-active: var(--tg-font-primary-selected) !important;
+  --list-container-background-hover: var(--tg-hover) !important;
+  --list-container-background-selected: var(--tg-selector-sidebar-inactive) !important;
+  --list-container-background-selected-current: var(--tg-selector-sidebar-inactive) !important;
+  --list-container-background-selected-focused: var(--tg-selector-sidebar) !important;
+  --list-container-background-selected-current-focused: var(--tg-selector-sidebar) !important;
+  --list-container-border-hover: transparent !important;
+  --list-container-border-selected: transparent !important;
+  --list-container-border-selected-current: transparent !important;
+  --list-container-border-selected-focused: transparent !important;
+  --list-container-border-selected-current-focused: transparent !important;
+  --folder-color-folder: var(--tg-font-secondary-sidebar) !important;
+  --folder-color-inbox: var(--tg-icon-get) !important;
+  --folder-color-draft: var(--tg-icon-compose) !important;
+  --folder-color-sent: var(--tg-icon-compose) !important;
+  --folder-color-spam: var(--tg-icon-junk) !important;
+  --folder-color-trash: var(--tg-icon-delete) !important;
+  --new-folder-color: var(--tg-font-primary-sidebar) !important;
+  --folderpane-unread-count-background: var(--tg-folder-bubble-bg) !important;
+  --folderpane-unread-new-count-background: var(--tg-folder-bubble-bg) !important;
+  --folderpane-total-count-background: var(--tg-folder-bubble-bg) !important;
+  --folderpane-unread-count-text: var(--tg-folder-bubble-text) !important;
+  --folderpane-total-count-text: var(--tg-folder-bubble-text) !important;
+  background: var(--tg-bg-sidebar) !important;
+  color: var(--tg-font-primary-sidebar) !important;
+}
+#folderTree, #folderPaneHeaderBar { background: var(--tg-bg-sidebar) !important; color: var(--tg-font-primary-sidebar) !important; }
+#folderTree .mode-container { border-color: var(--tg-sidebar-divider) !important; }
+#folderTree .mode-name { color: var(--tg-font-secondary-sidebar) !important; }
+#folderTree li[data-server-type] > .container {
+  padding-block: 5px !important;
+  border-bottom-color: var(--tg-sidebar-divider) !important;
+  border-radius: 0 !important;
+}
+#folderTree li[data-server-type] > .container .icon { stroke: var(--tg-font-secondary-sidebar) !important; fill: transparent !important; }
+#folderTree li > .container { color: var(--tg-font-primary-sidebar) !important; }
+#folderTree li.selected > .container { background: var(--tg-selector-sidebar-inactive) !important; }
+#folderTree:focus-within li.selected > .container {
+  background: var(--tg-selector-sidebar) !important;
+  color: var(--tg-font-primary-selected) !important;
+}
+#folderTree .container > :is(.unread-count, .total-count) {
+  color: var(--tg-folder-bubble-text) !important;
+  background: var(--tg-folder-bubble-bg) !important;
+  border-color: transparent !important;
+  border-radius: var(--tg-folder-badge-radius) !important;
+  min-width: 16px !important;
+}
+
+/* ---------------------------------------------------- thread pane table */
+/* Thread rows keep Thunderbird's height; account rows get 5px block padding and the header avatar size is set. */
+#threadPane, #threadTree {
+  --layout-background-0: var(--tg-bg-primary) !important;
+  --tree-view-bg: var(--tg-bg-primary) !important;
+  --tree-view-color: var(--tg-font-primary) !important;
+  --unread-color: var(--tg-font-primary) !important;
+  --listbox-selected-bg: var(--tg-selector-thread-inactive) !important;
+  --listbox-selected-color: var(--tg-font-primary) !important;
+  --listbox-focused-selected-bg: var(--tg-selector) !important;
+  --listbox-focused-selected-color: var(--tg-font-primary-selected) !important;
+  --thread-pane-unread-fill: var(--tg-unread-dot) !important;
+  --thread-pane-unread-stroke: var(--tg-unread-dot) !important;
+  background: var(--tg-bg-primary) !important;
+  color: var(--tg-font-primary) !important;
+}
+#threadPaneHeader, #threadTree thead, #threadTree th {
+  background: var(--tg-bg-secondary) !important;
+  color: var(--tg-font-secondary) !important;
+}
+#threadPaneHeader { border-bottom: 1px solid var(--tg-divider-light) !important; }
+#threadPaneHeader :is(#threadPaneFolderName, #threadPaneFolderCount, #threadPaneSelectedCount, label) {
+  color: var(--tg-font-primary) !important;
+}
+#threadTree tbody > tr.table-layout:not(.selected) { background-color: var(--tg-bg-primary) !important; }
+#threadTree tbody > tr.table-layout td { border-bottom: 1px solid var(--tg-divider-light) !important; }
+#threadTree tbody > tr.table-layout.selected {
+  background-color: var(--tg-selector-thread-inactive) !important;
+  color: var(--tg-font-primary) !important;
+}
+#threadTree tbody:is(:focus, :focus-within) > tr.table-layout.selected,
+#threadTree tbody > tr.table-layout.selected:focus-within {
+  background-color: var(--tg-selector) !important;
+  color: var(--tg-font-primary-selected) !important;
+}
+
+/* ---------------------------------------------------- thread pane cards */
+/* Mirrors the table colours; thread rows keep Thunderbird's height. */
+#threadTree tbody > tr.card-layout,
+#threadTree tbody > tr.card-layout > td {
+  background-color: var(--tg-bg-primary) !important;
+  color: var(--tg-font-primary) !important;
+}
+#threadTree tbody > tr.card-layout .card-container {
+  background-color: var(--tg-bg-primary) !important;
+  border-color: var(--tg-divider-light) !important;
+  color: var(--tg-font-primary) !important;
+}
+#threadTree tbody > tr.card-layout .thread-card-subject-container .subject { color: var(--tg-font-primary) !important; }
+#threadTree tbody > tr.card-layout .thread-card-last-row :is(.sender, .date) { color: var(--tg-font-secondary) !important; }
+#threadTree tbody > tr.card-layout.selected .card-container {
+  background-color: var(--tg-selector-thread-inactive) !important;
+  color: var(--tg-font-primary) !important;
+}
+#threadTree tbody:is(:focus, :focus-within) > tr.card-layout.selected .card-container,
+#threadTree tbody > tr.card-layout.selected:focus-within .card-container {
+  background-color: var(--tg-selector) !important;
+  border-color: var(--tg-selector) !important;
+  color: var(--tg-font-primary-selected) !important;
+}
+#threadTree tbody:is(:focus, :focus-within) > tr.card-layout.selected .thread-card-subject-container .subject,
+#threadTree tbody > tr.card-layout.selected:focus-within .thread-card-subject-container .subject {
+  color: var(--tg-font-primary-selected) !important;
+}
+#threadTree tbody:is(:focus, :focus-within) > tr.card-layout.selected .thread-card-last-row :is(.sender, .date),
+#threadTree tbody > tr.card-layout.selected:focus-within .thread-card-last-row :is(.sender, .date) {
+  color: var(--tg-font-secondary-selected) !important;
+}
+
+/* -------------------------------------------- message header and pane */
+#messageHeader {
+  --recipient-avatar-size: 24px !important;
+  background-color: var(--tg-bg-secondary) !important;
+  color: var(--tg-font-primary) !important;
+}
+#messageHeader :is(.message-header-label, #dateLabel) { color: var(--tg-font-secondary) !important; }
+#messageHeader :is(.header-recipient, #expandedsubjectBox) { color: var(--tg-font-primary) !important; }
+#messagepanebox {
+  background-color: var(--tg-bg-secondary) !important;
+}
+#messagepane {
+  margin: 8px 12px 18px 12px !important;
+  border-radius: 6px !important;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.10) !important;
+}
+#header-splitter {
+  --splitter-color: transparent !important;
+  border: none !important;
+  background: transparent !important;
+  min-height: 0 !important;
+}
+
+/* --------------------------------------------------------- quick filter */
+#quickFilterBar {
+  background: var(--tg-bg-secondary) !important;
+  color: var(--tg-font-secondary) !important;
+  border-bottom: 1px solid var(--tg-divider-light) !important;
+}
+#quickFilterBar :is(button, label, .button) { color: var(--tg-font-primary) !important; }
+
+/* ----------------------------------------------------------- status bar */
+#status-bar {
+  background-color: var(--tg-bg-secondary) !important;
+  color: var(--tg-font-secondary) !important;
+  border-top: 1px solid var(--tg-divider-light) !important;
+}
+#status-bar :is(#statusText, .statusbarpanel) {
+  color: var(--tg-font-secondary) !important;
+}
+
+/* -------------------------------------------------- menus (dark only) */
+/* Context and menu-bar menus ignore the theme's popup colours: toolkit
+ * popup.css sets --panel-background-color: Menu on every non-arrow
+ * menupopup, so on Windows dark mode they render system grey (#222222).
+ * Recolour them with the navy palette in the dark variant only; the light
+ * variant keeps the native menu, which already matches. */
+@media (prefers-color-scheme: dark) {
+  :is(menupopup, panel):where(:not([type="arrow"])) {
+    --panel-background-color: var(--tg-bg-secondary) !important;
+    --panel-text-color: var(--tg-font-primary) !important;
+    --panel-border-color: var(--tg-divider-dark) !important;
+  }
+  :is(menu, menuitem)[_moz-menuactive]:not([disabled]) {
+    background-color: var(--tg-hover) !important;
+    color: var(--tg-font-primary) !important;
+  }
+  menuseparator { border-color: var(--tg-divider-dark) !important; }
+}

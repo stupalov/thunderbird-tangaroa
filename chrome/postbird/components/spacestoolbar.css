@@ -1,3 +1,0 @@
-/* Only recolour the rail; keep native sizing and arrangement. */
-#spacesToolbar { --spaces-bg-color: var(--pb-spaces-bg) !important; color: var(--pb-text-sender) !important; }
-.quickFoldersToolbar { background: var(--pb-bg-chrome) !important; color: var(--pb-text-sender) !important; border-bottom-color: var(--pb-divider) !important; }
