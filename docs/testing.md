@@ -95,6 +95,16 @@ Not covered: table view in dark mode, the quick filter bar, compose and address 
 
 Back to light mode: setting both values to 1 restored the light variant live (`12`); list `#F9FAFC`, sidebar `#1E2D3F`, message header `#E5E9F2`, search field `#FFFFFF`.
 
+### Windows 11, switching away and removal
+
+Thunderbird 158.0, test profile, Windows light mode, 2026-10-22, no restart at any point (captures kept locally, not in the repository).
+
+- Switched from Tangaroa to the built-in Light theme in Add-ons Manager, Themes: the folder pane, thread pane, accent colours and message area returned to Thunderbird's default look at once; no navy or Tangaroa colours remained.
+- Removed Tangaroa from its "..." menu (Remove, then confirmed the dialog): nothing changed, still the default look, no residue. The "has been removed" bar offers Undo.
+- Reinstalled `tangaroa-0.2.0.xpi` from file: Tangaroa became active immediately.
+- Dark mode, header toggle: with Windows dark and Tangaroa active, an opened HTML message shows a dark-reader switch at the right of the subject line in the message header, as the README says. Windows was switched back to light afterwards.
+- Result: no restart is needed after switching away from Tangaroa or removing it.
+
 ### macOS 27, light and dark (user check)
 
 Thunderbird 158.0, the user's working profile with AccountPane 0.1.9, `tangaroa-0.2.0.xpi` installed through Add-ons and Themes, 2026-10-22. The 0.1 kit was moved out of the profile (`chrome` folder renamed) and Thunderbird restarted once.
