@@ -8,6 +8,7 @@ User-facing changes, newest first.
 - Adds a dark variant based on Postbox Midnight with Tangaroa's key colours.
 - The theme follows the system colour scheme.
 - No manual profile settings are needed: `user.js`, `userChrome.css` and `userContent.css` are no longer used.
+- Known limitation: the body of an open message in the dark variant keeps Thunderbird's dark-reader grey; message content cannot be themed.
 - Migration: delete `chrome/userChrome.css`, `chrome/userContent.css`, `chrome/postbird/`, `user.js` and `user.js.applied` from the profile before installing the theme.
 
 ## 0.1.0

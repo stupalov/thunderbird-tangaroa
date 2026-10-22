@@ -24,6 +24,8 @@ The theme appears under **Themes** and is enabled. To switch back, choose anothe
 
 The theme follows the system colour scheme. Thunderbird's own theme overrides are not supported, and the theme has no settings of its own.
 
+Known limitation: in the dark variant the body of an open message is painted by Thunderbird's dark reader in Thunderbird's own dark grey, not in the theme's navy. A theme cannot style message content. Each message has a header toggle that shows it in light colours instead.
+
 ## Optional view settings
 
 Table View, density and Classic layout are standard Thunderbird choices. They are not required, and the theme works with the defaults.
@@ -38,7 +40,7 @@ Version 0.1 was a set of files copied into the profile. To move to the theme:
 
 ## Status
 
-Beta. Checked so far: see [docs/testing.md](docs/testing.md).
+Beta. Checked with Thunderbird 158.0 on macOS 27 (light and dark system appearance, working profile with AccountPane) and on Windows 11 (light and dark, test profile). Details: [docs/testing.md](docs/testing.md).
 
 ## Development
 

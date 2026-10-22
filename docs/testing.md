@@ -96,3 +96,13 @@ Not covered: table view in dark mode, the quick filter bar, compose and address 
 Back to light mode: setting both values to 1 restored the light variant live (`12`); list `#F9FAFC`, sidebar `#1E2D3F`, message header `#E5E9F2`, search field `#FFFFFF`.
 
 Pending (Task 8).
+
+### macOS 27, light and dark (user check)
+
+Thunderbird 158.0, the user's working profile with AccountPane 0.1.9, `tangaroa-0.2.0.xpi` installed through Add-ons and Themes, 2026-10-22. The 0.1 kit was moved out of the profile (`chrome` folder renamed) and Thunderbird restarted once.
+
+- Light system appearance: the theme reproduces the previous kit's look; no issues reported.
+- Dark system appearance: the interface switches to the dark variant without a restart; no issues reported except the message body.
+- Decision: the body of an open message is painted by Thunderbird's dark reader (`html { background: --color-gray-90 }` inside the message document, `#18181B`). A theme stylesheet does not reach message content, and a helper extension (`messageDisplayScripts`) was rejected as out of scope. Recorded as a known limitation in the README.
+- Not covered: hover states, compose and address-book windows.
+
