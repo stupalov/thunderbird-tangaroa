@@ -3,7 +3,7 @@
  * about:3pane, about:message). The manifest maps each tg_* colour to the
  * --tg-* variable of the same name; the :root values below are the light
  * palette and only apply when that mapping is absent.
- * Ported from the 0.1.0 userChrome kit; native row geometry is untouched.
+ * Ported from the 0.1.0 userChrome kit; thread rows keep Thunderbird's height; account rows get 5px block padding and the header avatar size is set.
  * The kit's userContent.css is not ported: theme stylesheets do not reach
  * message content documents, so message bodies keep their own styling. */
 
@@ -21,7 +21,6 @@
   --tg-divider-light: #D2D8E6;
   --tg-selector: #55ADF8;
   --tg-selector-sidebar: #55ADF8;
-  --tg-selector-inactive: rgba(192,204,218,0.6);
   --tg-selector-sidebar-inactive: rgba(255,255,255,0.2);
   --tg-selector-thread-inactive: #E4E9F3;
   --tg-font-primary: #1E2D3F;
@@ -30,9 +29,6 @@
   --tg-font-secondary-sidebar: #8494A3;
   --tg-font-primary-selected: #F9FAFC;
   --tg-font-secondary-selected: #E5E9F2;
-  --tg-font-pending: #8C96A0;
-  --tg-text-field-bg: #FFFFFF;
-  --tg-text-field-border: #DFE3E7;
   --tg-folder-bubble-bg: #dd491a;
   --tg-folder-bubble-text: #FFFFFF;
   --tg-unread-dot: #4AB1FF;
@@ -226,7 +222,7 @@ unified-toolbar,
 }
 
 /* ---------------------------------------------------- thread pane table */
-/* Native virtual-list row geometry is never changed here. */
+/* Thread rows keep Thunderbird's height; account rows get 5px block padding and the header avatar size is set. */
 #threadPane, #threadTree {
   --layout-background-0: var(--tg-bg-primary) !important;
   --tree-view-bg: var(--tg-bg-primary) !important;
@@ -262,7 +258,7 @@ unified-toolbar,
 }
 
 /* ---------------------------------------------------- thread pane cards */
-/* Mirrors the table colours; card geometry stays native. */
+/* Mirrors the table colours; thread rows keep Thunderbird's height. */
 #threadTree tbody > tr.card-layout,
 #threadTree tbody > tr.card-layout > td {
   background-color: var(--tg-bg-primary) !important;

@@ -33,3 +33,8 @@ test("typography :root rule is scoped to the mail documents", () => {
   assert.match(css, /:root:is\(:has\(#tabmail\)/);
   assert.doesNotMatch(css, /:root\s*\{[^}]*(?<![\w-])font-size\s*:/, "an unscoped :root block sets font-size");
 });
+test("every mapped variable is used inside var() in the stylesheet", () => {
+  const css = readStylesheet(); const m = readManifest();
+  const used = new Set([...css.matchAll(/var\((--tg-[a-z0-9-]+)/g)].map(x => x[1]));
+  for (const v of Object.values(m.theme_experiment.colors)) assert.ok(used.has(v), v + " is mapped but never used");
+});
