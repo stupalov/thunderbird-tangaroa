@@ -9,7 +9,7 @@ Copy-and-paste material for the addons.thunderbird.net developer hub. Keep the X
 | Name | Tangaroa |
 | Add-on ID (from the manifest, fixed) | `tangaroa@stupalov.github.io` |
 | Type | Theme (static theme with `theme_experiment`) |
-| Version | the manifest version of the uploaded XPI (0.2.3) |
+| Version | the manifest version of the uploaded XPI (0.2.4) |
 | Category | Themes |
 | Tags | postbox, tangaroa, dark, light, navy |
 | License | MIT License (theme); the adapted Postbird stylesheet is MIT, kept as `LICENSE-Postbird` |
@@ -38,7 +38,7 @@ Tangaroa reproduces the look of the Postbox mail client with its Tangaroa theme 
 
 Known limitation: in the dark variant the body of an open message keeps Thunderbird's own dark-reader colours; a theme cannot style message content. The toggle in the message header shows a message in light colours.
 
-Requires Thunderbird 157 or newer. Beta: checked on Thunderbird 158 on macOS and Windows 11. Independent project, not affiliated with Thunderbird or Postbox.
+Requires Thunderbird 140 ESR, Betterbird 140 or Thunderbird 157–158. Beta: checked on Thunderbird 158 on macOS and on Thunderbird 158, Thunderbird 140 ESR and Betterbird 140 on Windows 11. Independent project, not affiliated with Thunderbird or Postbox.
 
 ## Description (Russian)
 
@@ -51,15 +51,15 @@ Tangaroa воспроизводит в Thunderbird оформление почт
 
 Известное ограничение: в тёмном варианте тело открытого письма остаётся в цветах тёмного режима чтения Thunderbird; тема не может оформлять содержимое письма. Переключатель в заголовке письма показывает его в светлых цветах.
 
-Требуется Thunderbird 157 или новее. Бета: проверено на Thunderbird 158 на macOS и Windows 11. Независимый проект, не связан с Thunderbird и Postbox.
+Требуется Thunderbird 140 ESR, Betterbird 140 или Thunderbird 157–158. Бета: проверено в Thunderbird 158 на macOS и в Thunderbird 158, Thunderbird 140 ESR и Betterbird 140 на Windows 11. Независимый проект, не связан с Thunderbird и Postbox.
 
 ## Notes to reviewer (English)
 
 - Static theme: `manifest.json` with `theme`, `dark_theme` and `theme_experiment`; no scripts, no permissions, no network access.
 - `theme_experiment.stylesheet` (`tangaroa.css`) styles the main window (`messenger.xhtml`, `about:3pane`, `about:message`) using Thunderbird's own CSS variables and plain DOM selectors; custom `tg_*` colour keys are mapped to `--tg-*` variables. The light/dark palettes come from Postbox theme exports (colour values only); no Postbox assets are included.
 - `preview.png` at the XPI root is the theme card preview.
-- Source: https://github.com/stupalov/thunderbird-tangaroa (tag v0.2.3); reproducible build via `scripts/build.py`, 18 tests via `node --test tests/*.test.mjs`; SHA-256 in the GitHub release notes.
-- `strict_max_version` is `158.*`, the version the theme was checked on; the catalogue requires an explicit maximum for theme experiments.
+- Source: https://github.com/stupalov/thunderbird-tangaroa (tag v0.2.4); reproducible build via `scripts/build.py`, 18 tests via `node --test tests/*.test.mjs`; SHA-256 in the GitHub release notes.
+- `strict_min_version` is `140.0`; the theme was checked natively on Thunderbird 140 ESR and Betterbird 140. `strict_max_version` is `158.*`, the newest version the theme was checked on; the catalogue requires an explicit maximum for theme experiments.
 
 ## Privacy statement (if the form asks)
 

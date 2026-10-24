@@ -2,6 +2,10 @@
 
 User-facing changes, newest first.
 
+## 0.2.4
+
+- Support Thunderbird 140 ESR and Betterbird 140: `strict_min_version` is now `140.0` (maximum stays `158.*`). The stylesheet and colours are unchanged; both were checked on Windows 11 in light and dark mode.
+
 ## 0.2.3
 
 - Set `strict_max_version` to `158.*`: the add-on catalogue requires an explicit maximum for theme experiments. Each new Thunderbird release will need a theme update (or a compatibility edit in the catalogue).

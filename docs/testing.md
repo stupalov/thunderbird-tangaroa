@@ -119,3 +119,28 @@ Thunderbird 158.0, the user's working profile with AccountPane 0.1.9, `tangaroa-
 - `preview.png` (680×92, light half and dark half with a diagonal split) is packed at the XPI root; Thunderbird's installer picks it up as the theme preview.
 - Checked by the user on macOS 27 with Thunderbird 158.0: after installing 0.2.1 over 0.2.0 the Tangaroa card in Add-ons and Themes → Themes shows the preview. Not checked on Windows.
 
+## 0.2.4: Thunderbird 140 ESR and Betterbird 140 (2026-10-24)
+
+Windows 11 VM, keyboard-only control, captures kept outside Git. The build differed from 0.2.4 only in the version string. It was installed through Add-ons and Themes, gear, Install Add-on From File…, in two disposable copies of the fictional test profile:
+
+- Thunderbird 140.17.0esr (installer SHA-256 matches Mozilla's `SHA256SUMS`).
+- Betterbird 140.13.0esr-bb25 (installer SHA-256 matches betterbird.eu's `sha256-140.txt`).
+
+AccountPane 0.1.13 was active in both. Windows light and dark mode were switched through `AppsUseLightTheme` / `SystemUsesLightTheme`.
+
+| Check | TB 140 ESR | Betterbird 140 |
+|---|---|---|
+| Install accepted with `strict_min_version` 140.0, theme enabled at once | pass | pass |
+| Light: navy folder pane, light list, light message header, AccountPane rows | pass | pass |
+| Dark: switches live without a restart; navy surfaces, dark list and header | pass | pass |
+| Cards view | pass (light and dark) | pass (light and dark) |
+| Table view | pass (light and dark) | pass (light; Betterbird's default) |
+| Message list display menu and account context menu use the theme colours | pass (dark) | pass |
+| Unread badge on folders and AccountPane rows (orange) | pass | pass |
+
+Same look as on Thunderbird 158. The known limitation is unchanged: in dark mode the message body uses Thunderbird's dark reader colour, with the header toggle for light content.
+
+Betterbird's own defaults (classic layout with the message pane below the list, unread/total in the status bar) are styled without gaps.
+
+Not covered: hover states, compose and address-book windows, and versions 141–156.
+
