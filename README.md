@@ -12,6 +12,18 @@ The Postbox-style account list above the folder tree comes from a separate exten
 - It works in both the table view and the card view of the message list.
 - It styles the main window: toolbar, tabs, folder pane (including AccountPane rows), message list, message header and status bar.
 
+## Screenshots
+
+Thunderbird 158 with AccountPane in a test profile with fictional accounts (Windows 11).
+
+*Light variant, table view.*
+
+![Tangaroa light variant: dark navy folder pane, light message list and header](docs/images/tangaroa-light.png)
+
+*Dark variant, card view. The message body keeps Thunderbird's dark-reader colours.*
+
+![Tangaroa dark variant: navy surfaces throughout, blue selection](docs/images/tangaroa-dark.png)
+
 ## Installation
 
 1. Download `tangaroa-<version>.xpi` from the [Releases](https://github.com/stupalov/thunderbird-tangaroa/releases) page.
