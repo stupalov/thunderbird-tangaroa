@@ -2,6 +2,10 @@
 
 User-facing changes, newest first.
 
+## 0.2.1
+
+- Add a preview image for the Themes list of the Add-ons Manager.
+
 ## 0.2.0
 
 - The kit becomes an installable static Thunderbird theme with a `theme_experiment` stylesheet; install it from an `.xpi` file instead of copying files into the profile.
