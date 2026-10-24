@@ -134,8 +134,8 @@ AccountPane 0.1.13 was active in both. Windows light and dark mode were switched
 | Light: navy folder pane, light list, light message header, AccountPane rows | pass | pass |
 | Dark: switches live without a restart; navy surfaces, dark list and header | pass | pass |
 | Cards view | pass (light and dark) | pass (light and dark) |
-| Table view | pass (light and dark) | pass (light; Betterbird's default) |
-| Message list display menu and account context menu use the theme colours | pass (dark) | pass |
+| Table view | pass (light and dark) | pass (light and dark; Betterbird's default) |
+| Message list display menu and account context menu use the theme colours | pass | pass |
 | Unread badge on folders and AccountPane rows (orange) | pass | pass |
 
 Same look as on Thunderbird 158. The known limitation is unchanged: in dark mode the message body uses Thunderbird's dark reader colour, with the header toggle for light content.
