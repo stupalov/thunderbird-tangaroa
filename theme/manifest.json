@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Tangaroa",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A Thunderbird theme based on Postbox's Tangaroa, with light and dark variants that follow the system.",
   "browser_specific_settings": {
     "gecko": {

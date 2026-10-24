@@ -1,0 +1,52 @@
+<svg width="680" height="92" viewBox="0 0 680 92" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="barLight" x1="0" y1="0" x2="0" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#E2E7EE" />
+      <stop offset="1" stop-color="#C5D0DD" />
+    </linearGradient>
+    <linearGradient id="barDark" x1="0" y1="0" x2="0" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#253649" />
+      <stop offset="1" stop-color="#1A2838" />
+    </linearGradient>
+    <clipPath id="darkPart">
+      <polygon points="410,0 680,0 680,92 340,92" />
+    </clipPath>
+  </defs>
+
+  <!-- Light variant (full canvas, dark variant is painted over its right part) -->
+  <rect width="680" height="92" fill="#F9FAFC" />
+  <rect width="680" height="40" fill="url(#barLight)" />
+  <rect x="124" y="6" width="150" height="28" rx="5" fill="#CBD4E0" />
+  <rect x="142" y="18" width="110" height="4" rx="2" fill="#1E2D3F" />
+  <rect x="300" y="18" width="90" height="4" rx="2" fill="#1E2D3F" />
+  <rect x="110" y="40" width="570" height="1" fill="#D2D8E6" />
+  <rect x="110" y="41" width="570" height="17" fill="#F9FAFC" />
+  <rect x="110" y="58" width="570" height="17" fill="#55ADF8" />
+  <rect x="110" y="75" width="570" height="17" fill="#F9FAFC" />
+  <rect x="110" y="57" width="570" height="1" fill="#D2D8E6" />
+  <rect x="110" y="74" width="570" height="1" fill="#D2D8E6" />
+  <rect x="110" y="91" width="570" height="1" fill="#D2D8E6" />
+
+  <!-- Dark variant, clipped by a diagonal -->
+  <g clip-path="url(#darkPart)">
+    <rect width="680" height="92" fill="#16222F" />
+    <rect width="680" height="40" fill="url(#barDark)" />
+    <rect x="430" y="6" width="150" height="28" rx="5" fill="#1E2D3F" />
+    <rect x="448" y="18" width="110" height="4" rx="2" fill="#FFFFFF" fill-opacity="0.95" />
+    <rect x="606" y="18" width="50" height="4" rx="2" fill="#FFFFFF" fill-opacity="0.95" />
+    <rect x="110" y="40" width="570" height="1" fill="#2C3B4E" />
+    <rect x="110" y="41" width="570" height="17" fill="#16222F" />
+    <rect x="110" y="58" width="570" height="17" fill="#55ADF8" />
+    <rect x="110" y="75" width="570" height="17" fill="#16222F" />
+    <rect x="110" y="57" width="570" height="1" fill="#2C3B4E" />
+    <rect x="110" y="74" width="570" height="1" fill="#2C3B4E" />
+    <rect x="110" y="91" width="570" height="1" fill="#2C3B4E" />
+  </g>
+
+  <!-- Sidebar (same navy in both variants) -->
+  <rect width="110" height="92" fill="#1E2D3F" />
+  <rect x="14" y="14" width="56" height="5" rx="2.5" fill="#F9FAFC" fill-opacity="0.9" />
+  <rect x="14" y="43" width="46" height="5" rx="2.5" fill="#F9FAFC" fill-opacity="0.9" />
+  <rect x="14" y="72" width="64" height="5" rx="2.5" fill="#F9FAFC" fill-opacity="0.9" />
+  <circle cx="92" cy="45.5" r="6" fill="#dd491a" />
+</svg>

@@ -114,3 +114,8 @@ Thunderbird 158.0, the user's working profile with AccountPane 0.1.9, `tangaroa-
 - Decision: the body of an open message is painted by Thunderbird's dark reader (`html { background: --color-gray-90 }` inside the message document, `#18181B`). A theme stylesheet does not reach message content, and a helper extension (`messageDisplayScripts`) was rejected as out of scope. Recorded as a known limitation in the README.
 - Not covered: hover states, compose and address-book windows.
 
+## 0.2.1 preview image (2026-10-24)
+
+- `preview.png` (680×92, light half and dark half with a diagonal split) is packed at the XPI root; Thunderbird's installer picks it up as the theme preview.
+- Checked by the user on macOS 27 with Thunderbird 158.0: after installing 0.2.1 over 0.2.0 the Tangaroa card in Add-ons and Themes → Themes shows the preview. Not checked on Windows.
+
