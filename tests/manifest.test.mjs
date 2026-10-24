@@ -6,8 +6,8 @@ import { readManifest } from "./helpers.mjs";
 test("manifest is a static theme for Thunderbird 157+", () => {
   const m = readManifest();
   assert.deepEqual(Object.keys(m).sort(), ["browser_specific_settings","dark_theme","description","icons","manifest_version","name","theme","theme_experiment","version"]);
-  assert.equal(m.manifest_version, 2); assert.equal(m.version, "0.2.1"); assert.equal(m.name, "Tangaroa");
-  assert.deepEqual(m.browser_specific_settings.gecko, { id: "tangaroa@stupalov.github.io", strict_min_version: "157.0", strict_max_version: "*" });
+  assert.equal(m.manifest_version, 2); assert.equal(m.version, "0.2.2"); assert.equal(m.name, "Tangaroa");
+  assert.deepEqual(m.browser_specific_settings.gecko, { id: "tangaroa@stupalov.github.io", strict_min_version: "157.0" });
   assert.deepEqual(m.icons, { "32": "icons/tangaroa-32.png", "48": "icons/tangaroa-48.png", "64": "icons/tangaroa-64.png" });
 });
 test("light and dark variants define the same colour keys and opposite colour schemes", () => {

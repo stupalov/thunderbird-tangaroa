@@ -2,6 +2,10 @@
 
 User-facing changes, newest first.
 
+## 0.2.2
+
+- Remove the explicit `strict_max_version` from the manifest: the add-on catalogue's validator rejects `*`, and an omitted key means the same (no upper version cap).
+
 ## 0.2.1
 
 - Add a preview image for the Themes list of the Add-ons Manager.
