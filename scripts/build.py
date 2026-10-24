@@ -9,6 +9,7 @@ import zipfile
 
 ALLOWED_FILES = (
     "manifest.json",
+    "preview.png",
     "tangaroa.css",
     "icons/tangaroa-32.png",
     "icons/tangaroa-48.png",

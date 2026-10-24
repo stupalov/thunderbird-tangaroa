@@ -2,7 +2,7 @@
 
 ## Layout
 
-- `theme/` — everything that can go into the theme file: `manifest.json`, `tangaroa.css`, `icons/`, `LICENSE-Postbird`.
+- `theme/` — everything that can go into the theme file: `manifest.json`, `preview.png`, `tangaroa.css`, `icons/`, `LICENSE-Postbird`.
 - `scripts/` — `build.py` (packaging) and `render-icons.sh` with `render-icon.swift` (icon rendering).
 - `tests/` — Node tests for the manifest, the stylesheet and the build.
 - `docs/` — this file, `testing.md` (check journal) and `reference/postbox-palettes.json` (Postbox palettes, names and values only).
@@ -25,7 +25,7 @@ The directory form `node --test tests/` does not work.
 
 ## Icons
 
-`scripts/render-icons.sh` renders `theme/icons/tangaroa.svg` into the 32, 48 and 64 px PNGs. It needs macOS (it uses `render-icon.swift`). The PNGs are committed, so other systems do not need to run it.
+`scripts/render-icons.sh` renders `theme/icons/tangaroa.svg` into the 32, 48 and 64 px PNGs and `theme/preview.svg` into `theme/preview.png` (680×92, the card header in the Themes list; Thunderbird picks up `preview.png` from the XPI root). It needs macOS (it uses `render-icon.swift`). The PNGs are committed, so other systems do not need to run it.
 
 ## How colours reach the stylesheet
 

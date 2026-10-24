@@ -39,3 +39,9 @@ test("icon files referenced by the manifest exist and are PNG", () => {
     assert.deepEqual([...bytes.subarray(0, 4)], [0x89, 0x50, 0x4e, 0x47]);
   }
 });
+test("theme/preview.png is a 680x92 PNG", () => {
+  const bytes = readFileSync(new URL("../theme/preview.png", import.meta.url));
+  assert.deepEqual([...bytes.subarray(0, 4)], [0x89, 0x50, 0x4e, 0x47]);
+  assert.equal(bytes.readUInt32BE(16), 680);
+  assert.equal(bytes.readUInt32BE(20), 92);
+});

@@ -8,7 +8,7 @@ import { spawnSync } from "node:child_process";
 const build = new URL("../scripts/build.py", import.meta.url);
 const OUT = "dist/tangaroa-0.2.0.xpi";
 const FILES = ["LICENSE-Postbird", "icons/tangaroa-32.png", "icons/tangaroa-48.png",
-  "icons/tangaroa-64.png", "manifest.json", "tangaroa.css"];
+  "icons/tangaroa-64.png", "manifest.json", "preview.png", "tangaroa.css"];
 
 function fixture() {
   assert.ok(existsSync(build), "explicit allowlist build script must exist");
@@ -31,7 +31,7 @@ function inspectArchive(root, expression) {
   return JSON.parse(result.stdout);
 }
 
-test("build packs only the six allowlisted files and a valid manifest", () => {
+test("build packs only the seven allowlisted files and a valid manifest", () => {
   const f = fixture();
   try {
     for (const name of ["secret.css", ".git/config", "icons/tangaroa.svg.bak", "notes/extra.json"]) {
