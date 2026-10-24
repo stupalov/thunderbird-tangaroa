@@ -49,10 +49,10 @@ def build(root):
         inputs[relative] = path.read_bytes()
     manifest = json.loads(inputs["manifest.json"], object_pairs_hook=unique_object)
     require(set(manifest) == MANIFEST_KEYS)
-    require(manifest["manifest_version"] == 2 and manifest["version"] == "0.2.2")
+    require(manifest["manifest_version"] == 2 and manifest["version"] == "0.2.3")
     require(manifest["browser_specific_settings"] == {"gecko": {
         "id": "tangaroa@stupalov.github.io",
-        "strict_min_version": "157.0"}})
+        "strict_min_version": "157.0", "strict_max_version": "158.*"}})
     require(manifest["icons"] == {str(size): f"icons/tangaroa-{size}.png" for size in (32, 48, 64)})
     require(all(path in inputs for path in manifest["icons"].values()))
     require(isinstance(manifest["theme"], dict) and isinstance(manifest["dark_theme"], dict))
@@ -61,7 +61,7 @@ def build(root):
     require(experiment["stylesheet"] in inputs)
     output_dir = root / "dist"
     require(not output_dir.is_symlink())
-    output = output_dir / "tangaroa-0.2.2.xpi"
+    output = output_dir / "tangaroa-0.2.3.xpi"
     require(not output.is_symlink())
     output_dir.mkdir(exist_ok=True)
     temporary = None

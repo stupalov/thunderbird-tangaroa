@@ -2,9 +2,13 @@
 
 User-facing changes, newest first.
 
+## 0.2.3
+
+- Set `strict_max_version` to `158.*`: the add-on catalogue requires an explicit maximum for theme experiments. Each new Thunderbird release will need a theme update (or a compatibility edit in the catalogue).
+
 ## 0.2.2
 
-- Remove the explicit `strict_max_version` from the manifest: the add-on catalogue's validator rejects `*`, and an omitted key means the same (no upper version cap).
+- Remove the explicit `strict_max_version` from the manifest (the catalogue validator rejects `*`); superseded by 0.2.3.
 
 ## 0.2.1
 

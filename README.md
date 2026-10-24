@@ -30,7 +30,7 @@ Thunderbird 158 with AccountPane in a test profile with fictional accounts (Wind
 2. In Thunderbird open **Add-ons and Themes**, click the gear button and choose **Install Add-on From File…**.
 3. Select the downloaded file and confirm the installation.
 
-The theme appears under **Themes** and is enabled. To switch back, choose another theme in the same place. Thunderbird 157 or newer is required.
+The theme appears under **Themes** and is enabled. To switch back, choose another theme in the same place. Thunderbird 157 or 158 is required; the manifest names the versions the theme was checked on, and each new Thunderbird release gets a theme update.
 
 ## Light and dark
 
