@@ -30,16 +30,6 @@
 
 Табличный вид, плотность и классическая раскладка — обычные варианты Thunderbird. Они не обязательны, тема работает и с настройками по умолчанию.
 
-## Переход с набора 0.1
-
-Версия 0.1 была набором файлов, которые копировались в профиль. Чтобы перейти на тему:
-
-1. Полностью закройте Thunderbird.
-2. В профиле удалите `chrome/userChrome.css`, `chrome/userContent.css`, папку `chrome/postbird/`, а также `user.js` и `user.js.applied`, если они есть.
-3. Запустите Thunderbird и установите тему, как описано выше.
-
-Удаление файлов не отменяет настройки, которые `user.js` версии 0.1 сохранил в `prefs.js`: `mail.uifontsize` (15), `mail.uidensity` (1), `mail.threadpane.listview` (1), `mail.pane_config.dynamic` (0), `toolbar.unifiedtoolbar.buttonstyle` (1), `toolkit.legacyUserProfileCustomizations.stylesheets` (true), а также значения `font.name.*` и `font.size.*` для x-western и x-cyrillic (sans-serif и monospace Menlo, serif Verdana). С темой они безвредны. Чтобы вернуть значения Thunderbird по умолчанию, сбросьте их в Настройки, Основные, Редактор конфигурации (правый клик по параметру, Сбросить).
-
 ## Статус
 
 Бета. Проверено в Thunderbird 158.0 на macOS 27 (светлый и тёмный режим системы, рабочий профиль с AccountPane) и на Windows 11 (светлый и тёмный, тестовый профиль). Подробности: [docs/testing.md](docs/testing.md).

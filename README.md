@@ -30,16 +30,6 @@ Known limitation: in the dark variant the body of an open message is painted by 
 
 Table View, density and Classic layout are standard Thunderbird choices. They are not required, and the theme works with the defaults.
 
-## Migrating from the 0.1 kit
-
-Version 0.1 was a set of files copied into the profile. To move to the theme:
-
-1. Quit Thunderbird completely.
-2. In the profile delete `chrome/userChrome.css`, `chrome/userContent.css`, the `chrome/postbird/` folder, and `user.js` and `user.js.applied` if they exist.
-3. Start Thunderbird and install the theme as described above.
-
-Deleting the files does not undo the preferences the 0.1 `user.js` saved into `prefs.js`: `mail.uifontsize` (15), `mail.uidensity` (1), `mail.threadpane.listview` (1), `mail.pane_config.dynamic` (0), `toolbar.unifiedtoolbar.buttonstyle` (1), `toolkit.legacyUserProfileCustomizations.stylesheets` (true), and the `font.name.*` and `font.size.*` values for x-western and x-cyrillic (sans-serif and monospace Menlo, serif Verdana). They are harmless with the theme. If you want Thunderbird's defaults back, reset them in Settings, General, Config Editor (right-click a preference, Reset).
-
 ## Status
 
 Beta. Checked with Thunderbird 158.0 on macOS 27 (light and dark system appearance, working profile with AccountPane) and on Windows 11 (light and dark, test profile). Details: [docs/testing.md](docs/testing.md).
