@@ -6,7 +6,7 @@ import { join } from "node:path";
 import { spawnSync } from "node:child_process";
 
 const build = new URL("../scripts/build.py", import.meta.url);
-const OUT = "dist/tangaroa-0.2.4.xpi";
+const OUT = "dist/tangaroa-0.2.5.xpi";
 const FILES = ["LICENSE-Postbird", "icons/tangaroa-32.png", "icons/tangaroa-48.png",
   "icons/tangaroa-64.png", "manifest.json", "preview.png", "tangaroa.css"];
 
@@ -43,7 +43,7 @@ test("build packs only the seven allowlisted files and a valid manifest", () => 
     assert.equal(result.status, 0, result.stderr);
     const artifact = inspectArchive(f.root, "{'files':z.namelist(),'manifest':m}");
     assert.deepEqual(artifact.files, FILES);
-    assert.equal(artifact.manifest.version, "0.2.4");
+    assert.equal(artifact.manifest.version, "0.2.5");
     assert.equal(artifact.manifest.browser_specific_settings.gecko.id, "tangaroa@stupalov.github.io");
     assert.equal(artifact.manifest.theme_experiment.stylesheet, "tangaroa.css");
     const first = readFileSync(join(f.root, OUT));
@@ -96,7 +96,7 @@ test("build rejects malformed or drifted manifests without emitting an archive",
   const variants = {
     json: () => "{",
     "extra-key": (m) => { m.permissions = ["tabs"]; return JSON.stringify(m); },
-    version: (m) => { m.version = "0.2.5"; return JSON.stringify(m); },
+    version: (m) => { m.version = "0.2.6"; return JSON.stringify(m); },
     id: (m) => { m.browser_specific_settings.gecko.id = "other@example.invalid"; return JSON.stringify(m); },
     stylesheet: (m) => { m.theme_experiment.stylesheet = "other.css"; return JSON.stringify(m); },
     "icon-path": (m) => { m.icons["32"] = "icons/other.png"; return JSON.stringify(m); },

@@ -9,7 +9,7 @@ Copy-and-paste material for the addons.thunderbird.net developer hub. Keep the X
 | Name | Tangaroa |
 | Add-on ID (from the manifest, fixed) | `tangaroa@stupalov.github.io` |
 | Type | Theme (static theme with `theme_experiment`) |
-| Version | the manifest version of the uploaded XPI (0.2.4) |
+| Version | the manifest version of the uploaded XPI (0.2.5) |
 | Category | Themes |
 | Tags | postbox, tangaroa, dark, light, navy |
 | License | MIT License (theme); the adapted Postbird stylesheet is MIT, kept as `LICENSE-Postbird` |
@@ -58,7 +58,7 @@ Tangaroa воспроизводит в Thunderbird оформление почт
 - Static theme: `manifest.json` with `theme`, `dark_theme` and `theme_experiment`; no scripts, no permissions, no network access.
 - `theme_experiment.stylesheet` (`tangaroa.css`) styles the main window (`messenger.xhtml`, `about:3pane`, `about:message`) using Thunderbird's own CSS variables and plain DOM selectors; custom `tg_*` colour keys are mapped to `--tg-*` variables. The light/dark palettes come from Postbox theme exports (colour values only); no Postbox assets are included.
 - `preview.png` at the XPI root is the theme card preview.
-- Source: https://github.com/stupalov/thunderbird-tangaroa (tag v0.2.4); reproducible build via `scripts/build.py`, 18 tests via `node --test tests/*.test.mjs`; SHA-256 in the GitHub release notes.
+- Source: https://github.com/stupalov/thunderbird-tangaroa (tag v0.2.5); reproducible build via `scripts/build.py`, 19 tests via `node --test tests/*.test.mjs`; SHA-256 in the GitHub release notes.
 - `strict_min_version` is `140.0`; the theme was checked natively on Thunderbird 140 ESR and Betterbird 140. `strict_max_version` is `158.*`, the newest version the theme was checked on; the catalogue requires an explicit maximum for theme experiments.
 
 ## Privacy statement (if the form asks)

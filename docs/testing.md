@@ -144,3 +144,12 @@ Betterbird's own defaults (classic layout with the message pane below the list, 
 
 Not covered: hover states, compose and address-book windows, and versions 141–156.
 
+
+## 0.2.5: folder pane scrollbar (2026-10-25)
+
+macOS 27, Thunderbird 158.0.1, the user's working profile with AccountPane active, light system appearance. Only the folder pane scrollbar was looked at; no mail content is recorded.
+
+- Before: the native light-scheme scrollbar, a white track with a light grey thumb, stood out against the navy pane.
+- After installing the build over 0.2.4 the old look stayed until Thunderbird was quit and restarted: reinstalling an unchanged version keeps the cached stylesheet.
+- After the restart: no track, a rounded thumb about #606A77 on the navy pane, matching Postbox's folder pane scrollbar.
+- Not covered: the dark variant, hover state, Windows.

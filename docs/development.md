@@ -13,7 +13,7 @@
 python3 scripts/build.py
 ```
 
-The result is `dist/tangaroa-0.2.4.xpi`, and the script prints its SHA-256. The build packs only the files in `ALLOWED_FILES`, validates the manifest, uses fixed timestamps and is reproducible: two builds give identical bytes. The SHA-256 is reproducible on one machine (it depends on the zlib/Python build), so the release hash is taken from the release build. On invalid input it fails with `TANGAROA_BUILD_INVALID_INPUT`. `dist/` is ignored by Git.
+The result is `dist/tangaroa-0.2.5.xpi`, and the script prints its SHA-256. The build packs only the files in `ALLOWED_FILES`, validates the manifest, uses fixed timestamps and is reproducible: two builds give identical bytes. The SHA-256 is reproducible on one machine (it depends on the zlib/Python build), so the release hash is taken from the release build. On invalid input it fails with `TANGAROA_BUILD_INVALID_INPUT`. `dist/` is ignored by Git.
 
 ## Tests
 

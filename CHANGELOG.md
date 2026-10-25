@@ -2,6 +2,10 @@
 
 User-facing changes, newest first.
 
+## 0.2.5
+
+- The folder pane scrollbar matches the navy sidebar, as in Postbox: a translucent light thumb with no track, instead of the pale native track the light variant showed.
+
 ## 0.2.4
 
 - Support Thunderbird 140 ESR and Betterbird 140: `strict_min_version` is now `140.0` (maximum stays `158.*`). The stylesheet and colours are unchanged; both were checked on Windows 11 in light and dark mode.

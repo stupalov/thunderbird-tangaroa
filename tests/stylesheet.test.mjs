@@ -22,6 +22,10 @@ test("stylesheet sets the sidebar variables AccountPane reads", () => {
   const css = readStylesheet();
   for (const v of ["--sidebar-background", "--sidebar-color", "--treeitem-background-active", "--list-container-background-selected-focused", "--folderpane-unread-count-background", "--folderpane-unread-count-text"]) assert.match(css, new RegExp(v + "\\s*:"));
 });
+test("folder tree scrollbar has a translucent thumb on a transparent track", () => {
+  const css = readStylesheet();
+  assert.match(css, /#folderTree\s*\{[^}]*scrollbar-color\s*:\s*var\(--tg-sidebar-scrollbar-thumb\)\s+transparent/);
+});
 test("stylesheet :root defaults equal the manifest's light colours", () => {
   const css = readStylesheet(); const m = readManifest();
   const block = css.match(/(?:^|\n):root\s*\{([^}]*)\}/)[1];

@@ -43,6 +43,7 @@
   /* Derived colours (not manifest keys). */
   --tg-hover: color-mix(in srgb, var(--tg-font-secondary) 25%, transparent);
   --tg-sidebar-divider: color-mix(in srgb, var(--tg-bg-sidebar) 82%, white);
+  --tg-sidebar-scrollbar-thumb: color-mix(in srgb, var(--tg-font-primary-sidebar) 30%, transparent);
   --tg-toolbar-bg: linear-gradient(var(--tg-toolbar-top), var(--tg-toolbar-bottom));
 
   /* Size tokens. */
@@ -199,6 +200,10 @@ unified-toolbar,
   color: var(--tg-font-primary-sidebar) !important;
 }
 #folderTree, #folderPaneHeaderBar { background: var(--tg-bg-sidebar) !important; color: var(--tg-font-primary-sidebar) !important; }
+/* Postbox-style scrollbar: translucent light thumb, no track. The sidebar
+ * is navy in both variants, so the light colour scheme's pale track is
+ * replaced; Gecko brightens the thumb on hover by itself. */
+#folderTree { scrollbar-color: var(--tg-sidebar-scrollbar-thumb) transparent !important; }
 #folderTree .mode-container { border-color: var(--tg-sidebar-divider) !important; }
 #folderTree .mode-name { color: var(--tg-font-secondary-sidebar) !important; }
 #folderTree li[data-server-type] > .container {
