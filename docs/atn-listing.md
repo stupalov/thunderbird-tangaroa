@@ -34,7 +34,7 @@ Tangaroa reproduces the look of the Postbox mail client with its Tangaroa theme 
 - Light variant: the Postbox Tangaroa palette unchanged.
 - Dark variant: based on Postbox Midnight with Tangaroa's key colours. The theme follows the system colour scheme; nothing to configure.
 - Styles the main window in table and card views: toolbar, tabs, folder pane, message list, message header, quick filter, menus, status bar.
-- Pairs with the AccountPane extension, which adds a Postbox-style account list above the folder pane. AccountPane is not in this catalogue (it uses an Experiment API, and the catalogue is not accepting new Experiment add-ons at the moment); it is distributed from GitHub Releases: https://github.com/stupalov/thunderbird-account-pane/releases/latest
+- Pairs with the AccountPane extension, which adds a Postbox-style account list above the folder pane. AccountPane is distributed from GitHub Releases: https://github.com/stupalov/thunderbird-account-pane/releases/latest
 
 Known limitation: in the dark variant the body of an open message keeps Thunderbird's own dark-reader colours; a theme cannot style message content. The toggle in the message header shows a message in light colours.
 
@@ -47,7 +47,7 @@ Tangaroa воспроизводит в Thunderbird оформление почт
 - Светлый вариант: палитра Postbox Tangaroa без изменений.
 - Тёмный вариант: на основе Postbox Midnight с ключевыми цветами Tangaroa. Тема следует цветовой схеме системы, настраивать ничего не нужно.
 - Оформляет главное окно в табличном виде и в карточках: панель инструментов, вкладки, панель папок, список писем, заголовок письма, быстрый фильтр, меню, строку состояния.
-- Сочетается с расширением AccountPane, добавляющим список аккаунтов над панелью папок, как в Postbox. AccountPane нет в этом каталоге (оно использует Experiment API, а каталог сейчас не принимает новые Experiment-расширения); распространяется через GitHub Releases: https://github.com/stupalov/thunderbird-account-pane/releases/latest
+- Сочетается с расширением AccountPane, добавляющим список аккаунтов над панелью папок, как в Postbox. AccountPane распространяется через GitHub Releases: https://github.com/stupalov/thunderbird-account-pane/releases/latest
 
 Известное ограничение: в тёмном варианте тело открытого письма остаётся в цветах тёмного режима чтения Thunderbird; тема не может оформлять содержимое письма. Переключатель в заголовке письма показывает его в светлых цветах.
 
