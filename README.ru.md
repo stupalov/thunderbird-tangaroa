@@ -50,6 +50,10 @@ Thunderbird 158 с AccountPane в тестовом профиле с вымыш�
 
 См. [docs/development.md](docs/development.md).
 
+## Поддержать проект
+
+Тема и расширение бесплатны. Если с ними Thunderbird стал удобнее, можно сказать спасибо на [Liberapay](https://liberapay.com/stupalov) или через кнопку Contribute на странице в каталоге дополнений. Это ничего не меняет: всё остаётся бесплатным для всех.
+
 ## Дополнительно
 
 [История изменений](CHANGELOG.md) · [Авторство](ATTRIBUTION.md) · [Лицензия](LICENSE)

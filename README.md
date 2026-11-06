@@ -50,6 +50,10 @@ Beta. Checked with Thunderbird 158.0 on macOS 27 (light and dark system appearan
 
 See [docs/development.md](docs/development.md).
 
+## Support the project
+
+Both the theme and the extension are free. If they make Thunderbird more comfortable for you, you can say thanks on [Liberapay](https://liberapay.com/stupalov) or through the Contribute button on the add-on catalogue page. This changes nothing: everything stays free for everyone.
+
 ## More information
 
 [Changelog](CHANGELOG.md) · [Attribution](ATTRIBUTION.md) · [License](LICENSE)
