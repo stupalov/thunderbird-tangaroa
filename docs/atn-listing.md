@@ -11,7 +11,7 @@ Copy-and-paste material for the addons.thunderbird.net developer hub. Keep the X
 | Type | Theme (static theme with `theme_experiment`) |
 | Version | the manifest version of the uploaded XPI (0.2.5) |
 | Category | Themes |
-| Tags | postbox, tangaroa, dark, light, navy |
+| Tags | postbox, tangaroa, dark, light, navy, theme (the catalogue adds the reserved tag `firefox57` automatically) |
 | License | MIT License (theme); the adapted Postbird stylesheet is MIT, kept as `LICENSE-Postbird` |
 | Homepage | https://github.com/stupalov/thunderbird-tangaroa |
 | Support site | https://github.com/stupalov/thunderbird-tangaroa/issues |
