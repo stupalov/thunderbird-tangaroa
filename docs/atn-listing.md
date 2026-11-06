@@ -15,6 +15,7 @@ Copy-and-paste material for the addons.thunderbird.net developer hub. Keep the X
 | License | MIT License (theme); the adapted Postbird stylesheet is MIT, kept as `LICENSE-Postbird` |
 | Homepage | https://github.com/stupalov/thunderbird-tangaroa |
 | Support site | https://github.com/stupalov/thunderbird-tangaroa/issues |
+| Contributions URL | https://liberapay.com/stupalov (shows a Contribute button on the listing; the field accepts only Liberapay, Open Collective, Patreon, PayPal, micropayment.de, donate.mozilla.org and give.thunderbird.net) |
 | Icon | `theme/icons/tangaroa-64.png` (also 48, 32) |
 | Screenshots | `docs/images/tangaroa-light.png`, `docs/images/tangaroa-dark.png` (test profile, fictional accounts) |
 | Preview | `theme/preview.png` is inside the XPI; ATN may also generate its own from the manifest colours |
