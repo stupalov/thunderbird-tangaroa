@@ -153,3 +153,23 @@ macOS 27, Thunderbird 158.0.1, the user's working profile with AccountPane activ
 - After installing the build over 0.2.4 the old look stayed until Thunderbird was quit and restarted: reinstalling an unchanged version keeps the cached stylesheet.
 - After the restart: no track, a rounded thumb about #606A77 on the navy pane, matching Postbox's folder pane scrollbar.
 - Not covered: the dark variant, hover state, Windows.
+
+## 0.2.6: Thunderbird 159 (2026-11-11)
+
+macOS 27, Thunderbird 159.0 (build 20261026161902), a disposable profile with Local Folders and four generated messages. Thunderbird ran headless and was driven through Marionette; nothing was looked at in a visible window.
+
+Static check: every selector and Thunderbird variable in `tangaroa.css`, and every manifest colour key, was compared with the chrome sources in the 159.0 `omni.ja`.
+
+Run check (`tangaroa-0.2.6.xpi`, cards view, light and dark through `ui.systemUsesDarkTheme`):
+
+- The add-on is reported compatible and becomes active; the window gets `lwtheme` and `lwt-tree`, plus `lwtheme-brighttext` in dark.
+- Computed colours match the palette in both variants: toolbar gradient, tab strip and selected tab, spaces rail, folder pane `#1E2D3F` with the translucent scrollbar thumb, list `#F9FAFC` / `#16222F`, selected card, message header, status bar. The variant switches live.
+- One full-window capture per variant shows the expected look; in dark the message body keeps the dark-reader colour (known limitation).
+
+Found, unchanged from earlier versions and left as they are in 0.2.6:
+
+- The rules for `#threadPaneHeader`, `#quickFilterBar`, `.thread-card-last-row` and `#header-splitter` match nothing in 159. The list header bar is `#threadPaneHeaderBar` and takes the toolbar colour (`#C5D0DD` in light instead of `#E5E9F2`), the quick filter bar is `#quick-filter-bar` and keeps Thunderbird's colours, and the card sender and date use the primary text colour.
+- The console logs `Unrecognized theme property found: colors.sidebar_highlight_border`; the key is in the schema but Thunderbird drops it.
+- From reading the sources only, not run: `font-size: 13px !important` on the root should win over the inline size Thunderbird's font size setting applies in the mail window.
+
+Not covered: a visible window, table view, hover states, context menus, the working profile with AccountPane, Windows.

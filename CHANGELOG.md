@@ -2,6 +2,10 @@
 
 User-facing changes, newest first.
 
+## 0.2.6
+
+- Support Thunderbird 159: `strict_max_version` is now `159.*`. The stylesheet and colours are unchanged.
+
 ## 0.2.5
 
 - The folder pane scrollbar matches the navy sidebar, as in Postbox: a translucent light thumb with no track, instead of the pale native track the light variant showed.
