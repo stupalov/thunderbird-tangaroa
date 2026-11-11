@@ -2,6 +2,12 @@
 
 User-facing changes, newest first.
 
+## 0.2.7
+
+- The message list header bar and the quick filter bar now use the theme's secondary background (`#E5E9F2` light, `#1A2838` dark) instead of Thunderbird's toolbar colour; in the light variant the header bar becomes lighter.
+- In card view the sender and date use the secondary text colour, so the subject stands out.
+- The rules for these three places named elements that do not exist in Thunderbird (140 ESR to 159) and had no effect; they now use the real names. An unused splitter rule was removed.
+
 ## 0.2.6
 
 - Support Thunderbird 159: `strict_max_version` is now `159.*`. The stylesheet and colours are unchanged.

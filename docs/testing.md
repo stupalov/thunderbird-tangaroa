@@ -173,3 +173,19 @@ Found, unchanged from earlier versions and left as they are in 0.2.6:
 - From reading the sources only, not run: `font-size: 13px !important` on the root should win over the inline size Thunderbird's font size setting applies in the mail window.
 
 Not covered: a visible window, table view, hover states, context menus, the working profile with AccountPane, Windows.
+
+## 0.2.7: corrected selectors (2026-11-11)
+
+Same setup as the 0.2.6 run: macOS 27, Thunderbird 159.0 headless through Marionette, disposable profile, cards view, quick filter bar open. `tangaroa-0.2.6.xpi` and `tangaroa-0.2.7.xpi` were captured one after the other in light and dark.
+
+Element names were also compared with the comm-esr140 sources (`about3Pane.xhtml`, `threadPane.css`, `quickFilterBar.css`, `threadCard.css`): `#threadPaneHeaderBar`, `#quick-filter-bar` and `.thread-card-row` are the same in 140 ESR and 159.
+
+| Element | 0.2.6 | 0.2.7 |
+|---|---|---|
+| List header bar, light | `#C5D0DD` | `#E5E9F2`, border `#D2D8E6` |
+| List header bar, dark | `#1A2838` | `#1A2838`, border `#2C3B4E` |
+| Quick filter bar | toolbar colour at 50% | `#E5E9F2` / `#1A2838` |
+| Card sender and date | primary text colour | `#5E6C79` / white 0.7 |
+| Card sender on a focused selection | `#F9FAFC` / `#FFFFFF` | `#E5E9F2` / `#E3F5FF` |
+
+Not covered: a visible window, table view, Thunderbird 140 ESR and Betterbird at run time, hover states, checked quick filter buttons, Windows.

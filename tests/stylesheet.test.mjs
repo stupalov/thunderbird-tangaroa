@@ -42,3 +42,13 @@ test("every mapped variable is used inside var() in the stylesheet", () => {
   const used = new Set([...css.matchAll(/var\((--tg-[a-z0-9-]+)/g)].map(x => x[1]));
   for (const v of Object.values(m.theme_experiment.colors)) assert.ok(used.has(v), v + " is mapped but never used");
 });
+
+test("stylesheet targets elements that exist in Thunderbird 140 ESR and 159", () => {
+  const css = readStylesheet();
+  for (const gone of ["#threadPaneHeader ", "#threadPaneHeader,", "#threadPaneHeader:", "#quickFilterBar", ".thread-card-last-row", "#header-splitter"]) {
+    assert.ok(!css.includes(gone), `${gone} matches nothing in Thunderbird`);
+  }
+  for (const present of ["#threadPaneHeaderBar", "#quick-filter-bar", ".thread-card-row :is(.sender, .date)"]) {
+    assert.ok(css.includes(present), present);
+  }
+});

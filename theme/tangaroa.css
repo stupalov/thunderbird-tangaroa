@@ -156,7 +156,8 @@ unified-toolbar,
 }
 
 /* --------------------------------------------------------------- spaces */
-/* Recolour the rail only; native sizing and arrangement are kept. */
+/* Recolour the rail only; native sizing and arrangement are kept.
+ * .quickFoldersToolbar belongs to the QuickFolders add-on, not Thunderbird. */
 #spacesToolbar { --spaces-bg-color: var(--tg-toolbar-top) !important; color: var(--tg-font-primary) !important; }
 .quickFoldersToolbar {
   background: var(--tg-bg-secondary) !important;
@@ -242,12 +243,12 @@ unified-toolbar,
   background: var(--tg-bg-primary) !important;
   color: var(--tg-font-primary) !important;
 }
-#threadPaneHeader, #threadTree thead, #threadTree th {
+#threadPaneHeaderBar, #threadTree thead, #threadTree th {
   background: var(--tg-bg-secondary) !important;
   color: var(--tg-font-secondary) !important;
 }
-#threadPaneHeader { border-bottom: 1px solid var(--tg-divider-light) !important; }
-#threadPaneHeader :is(#threadPaneFolderName, #threadPaneFolderCount, #threadPaneSelectedCount, label) {
+#threadPaneHeaderBar { border-bottom: 1px solid var(--tg-divider-light) !important; }
+#threadPaneHeaderBar :is(#threadPaneFolderName, #threadPaneFolderCount, #threadPaneSelectedCount, label) {
   color: var(--tg-font-primary) !important;
 }
 #threadTree tbody > tr.table-layout:not(.selected) { background-color: var(--tg-bg-primary) !important; }
@@ -275,7 +276,7 @@ unified-toolbar,
   color: var(--tg-font-primary) !important;
 }
 #threadTree tbody > tr.card-layout .thread-card-subject-container .subject { color: var(--tg-font-primary) !important; }
-#threadTree tbody > tr.card-layout .thread-card-last-row :is(.sender, .date) { color: var(--tg-font-secondary) !important; }
+#threadTree tbody > tr.card-layout .thread-card-row :is(.sender, .date) { color: var(--tg-font-secondary) !important; }
 #threadTree tbody > tr.card-layout.selected .card-container {
   background-color: var(--tg-selector-thread-inactive) !important;
   color: var(--tg-font-primary) !important;
@@ -290,8 +291,8 @@ unified-toolbar,
 #threadTree tbody > tr.card-layout.selected:focus-within .thread-card-subject-container .subject {
   color: var(--tg-font-primary-selected) !important;
 }
-#threadTree tbody:is(:focus, :focus-within) > tr.card-layout.selected .thread-card-last-row :is(.sender, .date),
-#threadTree tbody > tr.card-layout.selected:focus-within .thread-card-last-row :is(.sender, .date) {
+#threadTree tbody:is(:focus, :focus-within) > tr.card-layout.selected .thread-card-row :is(.sender, .date),
+#threadTree tbody > tr.card-layout.selected:focus-within .thread-card-row :is(.sender, .date) {
   color: var(--tg-font-secondary-selected) !important;
 }
 
@@ -311,20 +312,14 @@ unified-toolbar,
   border-radius: 6px !important;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.10) !important;
 }
-#header-splitter {
-  --splitter-color: transparent !important;
-  border: none !important;
-  background: transparent !important;
-  min-height: 0 !important;
-}
 
 /* --------------------------------------------------------- quick filter */
-#quickFilterBar {
+#quick-filter-bar {
   background: var(--tg-bg-secondary) !important;
   color: var(--tg-font-secondary) !important;
   border-bottom: 1px solid var(--tg-divider-light) !important;
 }
-#quickFilterBar :is(button, label, .button) { color: var(--tg-font-primary) !important; }
+#quick-filter-bar :is(button, label, .button) { color: var(--tg-font-primary) !important; }
 
 /* ----------------------------------------------------------- status bar */
 #status-bar {
